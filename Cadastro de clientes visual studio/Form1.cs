@@ -48,5 +48,20 @@ namespace Cadastro_de_clientes_visual_studio
         {
 
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

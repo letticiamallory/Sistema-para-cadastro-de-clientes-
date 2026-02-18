@@ -44,17 +44,14 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
-            textBox3 = new TextBox();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
-            textBox8 = new TextBox();
             textBox9 = new TextBox();
             textBox10 = new TextBox();
             label16 = new Label();
             textBox11 = new TextBox();
             textBox12 = new TextBox();
-            textBox13 = new TextBox();
             textBox14 = new TextBox();
             textBox15 = new TextBox();
             radioButton1 = new RadioButton();
@@ -64,7 +61,13 @@
             radioButton5 = new RadioButton();
             groupBox1 = new GroupBox();
             checkBox1 = new CheckBox();
+            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBox2 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
+            maskedTextBox4 = new MaskedTextBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -224,14 +227,6 @@
             label15.Text = "Situação Cadastral";
             label15.Click += label1_Click;
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(151, 121);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(139, 23);
-            textBox3.TabIndex = 1;
-            textBox3.TextChanged += textBox3_TextChanged;
-            // 
             // textBox5
             // 
             textBox5.Location = new Point(151, 185);
@@ -252,13 +247,6 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(162, 23);
             textBox7.TabIndex = 1;
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(34, 251);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 1;
             // 
             // textBox9
             // 
@@ -299,13 +287,6 @@
             textBox12.Size = new Size(337, 23);
             textBox12.TabIndex = 1;
             // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(34, 376);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(165, 23);
-            textBox13.TabIndex = 1;
-            // 
             // textBox14
             // 
             textBox14.Location = new Point(218, 376);
@@ -324,24 +305,28 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(162, 100);
+            radioButton1.Location = new Point(8, 3);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(46, 19);
             radioButton1.TabIndex = 2;
             radioButton1.TabStop = true;
             radioButton1.Text = "CPF";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(218, 100);
+            radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radioButton2.Location = new Point(60, 3);
+            radioButton2.Margin = new Padding(3, 3, 17, 10);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(52, 19);
             radioButton2.TabIndex = 3;
             radioButton2.TabStop = true;
             radioButton2.Text = "CNPJ";
+            radioButton2.TextAlign = ContentAlignment.MiddleRight;
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // radioButton3
             // 
@@ -405,6 +390,52 @@
             checkBox1.Text = "Ativo";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(151, 121);
+            maskedTextBox1.Mask = "000,000,000-00";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(139, 23);
+            maskedTextBox1.TabIndex = 7;
+            // 
+            // maskedTextBox2
+            // 
+            maskedTextBox2.Location = new Point(498, 185);
+            maskedTextBox2.Mask = "00/00/0000";
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(162, 23);
+            maskedTextBox2.TabIndex = 7;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.Location = new Point(34, 376);
+            maskedTextBox3.Mask = "(00) 00000-0000";
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(165, 23);
+            maskedTextBox3.TabIndex = 7;
+            maskedTextBox3.MaskInputRejected += maskedTextBox3_MaskInputRejected;
+            // 
+            // maskedTextBox4
+            // 
+            maskedTextBox4.Location = new Point(34, 251);
+            maskedTextBox4.Mask = "00000-000";
+            maskedTextBox4.Name = "maskedTextBox4";
+            maskedTextBox4.Size = new Size(100, 23);
+            maskedTextBox4.TabIndex = 7;
+            maskedTextBox4.MaskInputRejected += maskedTextBox3_MaskInputRejected;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.Controls.Add(radioButton2);
+            flowLayoutPanel1.Controls.Add(radioButton1);
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(151, 99);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(129, 25);
+            flowLayoutPanel1.TabIndex = 8;
+            flowLayoutPanel1.WrapContents = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -413,23 +444,23 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(maskedTextBox4);
+            Controls.Add(maskedTextBox3);
+            Controls.Add(maskedTextBox2);
+            Controls.Add(maskedTextBox1);
             Controls.Add(checkBox1);
             Controls.Add(groupBox1);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
             Controls.Add(textBox2);
             Controls.Add(label2);
             Controls.Add(textBox7);
             Controls.Add(textBox6);
-            Controls.Add(textBox8);
             Controls.Add(textBox15);
             Controls.Add(textBox14);
             Controls.Add(textBox12);
             Controls.Add(textBox11);
             Controls.Add(textBox9);
-            Controls.Add(textBox13);
             Controls.Add(textBox5);
-            Controls.Add(textBox3);
             Controls.Add(textBox10);
             Controls.Add(textBox1);
             Controls.Add(label10);
@@ -454,6 +485,8 @@
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -475,25 +508,27 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private TextBox textBox3;
         private TextBox textBox5;
         private TextBox textBox6;
         private TextBox textBox7;
-        private TextBox textBox8;
         private TextBox textBox9;
         private TextBox textBox10;
         private Label label16;
         private TextBox textBox11;
         private TextBox textBox12;
-        private TextBox textBox13;
         private TextBox textBox14;
         private TextBox textBox15;
         private RadioButton radioButton1;
-        private RadioButton radioButton2;
         private RadioButton radioButton3;
         private RadioButton radioButton4;
         private RadioButton radioButton5;
         private GroupBox groupBox1;
         private CheckBox checkBox1;
+        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox maskedTextBox3;
+        private MaskedTextBox maskedTextBox4;
+        private FlowLayoutPanel flowLayoutPanel1;
+        public RadioButton radioButton2;
     }
 }
