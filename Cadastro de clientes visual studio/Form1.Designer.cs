@@ -33,8 +33,6 @@
             textBox1 = new TextBox();
             label2 = new Label();
             textBox2 = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -47,7 +45,6 @@
             label14 = new Label();
             label15 = new Label();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
@@ -60,7 +57,14 @@
             textBox13 = new TextBox();
             textBox14 = new TextBox();
             textBox15 = new TextBox();
-            textBox16 = new TextBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton3 = new RadioButton();
+            radioButton4 = new RadioButton();
+            radioButton5 = new RadioButton();
+            groupBox1 = new GroupBox();
+            checkBox1 = new CheckBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -99,33 +103,11 @@
             textBox2.TabIndex = 1;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F);
-            label3.Location = new Point(151, 87);
-            label3.Name = "label3";
-            label3.Size = new Size(110, 20);
-            label3.TabIndex = 0;
-            label3.Text = "Documentação";
-            label3.Click += label1_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11.25F);
-            label4.Location = new Point(309, 87);
-            label4.Name = "label4";
-            label4.Size = new Size(57, 20);
-            label4.TabIndex = 0;
-            label4.Text = "Gênero";
-            label4.Click += label1_Click;
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F);
-            label5.Location = new Point(151, 147);
+            label5.Location = new Point(151, 162);
             label5.Name = "label5";
             label5.Size = new Size(28, 20);
             label5.TabIndex = 0;
@@ -136,7 +118,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F);
-            label6.Location = new Point(307, 147);
+            label6.Location = new Point(307, 162);
             label6.Name = "label6";
             label6.Size = new Size(86, 20);
             label6.TabIndex = 0;
@@ -147,7 +129,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F);
-            label7.Location = new Point(498, 147);
+            label7.Location = new Point(498, 162);
             label7.Name = "label7";
             label7.Size = new Size(145, 20);
             label7.TabIndex = 0;
@@ -158,7 +140,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F);
-            label8.Location = new Point(34, 213);
+            label8.Location = new Point(34, 228);
             label8.Name = "label8";
             label8.Size = new Size(34, 20);
             label8.TabIndex = 0;
@@ -169,7 +151,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11.25F);
-            label9.Location = new Point(151, 213);
+            label9.Location = new Point(151, 228);
             label9.Name = "label9";
             label9.Size = new Size(71, 20);
             label9.TabIndex = 0;
@@ -180,7 +162,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F);
-            label10.Location = new Point(560, 213);
+            label10.Location = new Point(560, 228);
             label10.Name = "label10";
             label10.Size = new Size(26, 20);
             label10.TabIndex = 0;
@@ -191,7 +173,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11.25F);
-            label11.Location = new Point(34, 402);
+            label11.Location = new Point(34, 417);
             label11.Name = "label11";
             label11.Size = new Size(93, 20);
             label11.TabIndex = 0;
@@ -202,7 +184,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11.25F);
-            label12.Location = new Point(323, 278);
+            label12.Location = new Point(323, 293);
             label12.Name = "label12";
             label12.Size = new Size(56, 20);
             label12.TabIndex = 0;
@@ -213,7 +195,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F);
-            label13.Location = new Point(34, 338);
+            label13.Location = new Point(34, 353);
             label13.Name = "label13";
             label13.Size = new Size(55, 20);
             label13.TabIndex = 0;
@@ -224,7 +206,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11.25F);
-            label14.Location = new Point(218, 338);
+            label14.Location = new Point(218, 353);
             label14.Name = "label14";
             label14.Size = new Size(52, 20);
             label14.TabIndex = 0;
@@ -235,7 +217,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11.25F);
-            label15.Location = new Point(34, 554);
+            label15.Location = new Point(34, 573);
             label15.Name = "label15";
             label15.Size = new Size(132, 20);
             label15.TabIndex = 0;
@@ -244,56 +226,50 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(151, 110);
+            textBox3.Location = new Point(151, 121);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(139, 23);
             textBox3.TabIndex = 1;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(309, 110);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(139, 23);
-            textBox4.TabIndex = 1;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(151, 170);
+            textBox5.Location = new Point(151, 185);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(139, 23);
             textBox5.TabIndex = 1;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(309, 170);
+            textBox6.Location = new Point(309, 185);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(162, 23);
             textBox6.TabIndex = 1;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(498, 170);
+            textBox7.Location = new Point(498, 185);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(162, 23);
             textBox7.TabIndex = 1;
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(34, 236);
+            textBox8.Location = new Point(34, 251);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(100, 23);
             textBox8.TabIndex = 1;
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(151, 236);
+            textBox9.Location = new Point(151, 251);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(395, 23);
             textBox9.TabIndex = 1;
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(560, 236);
+            textBox10.Location = new Point(560, 251);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(100, 23);
             textBox10.TabIndex = 1;
@@ -311,47 +287,123 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(34, 301);
+            textBox11.Location = new Point(34, 316);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(283, 23);
             textBox11.TabIndex = 1;
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(323, 301);
+            textBox12.Location = new Point(323, 316);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(337, 23);
             textBox12.TabIndex = 1;
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(34, 361);
+            textBox13.Location = new Point(34, 376);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(165, 23);
             textBox13.TabIndex = 1;
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(218, 361);
+            textBox14.Location = new Point(218, 376);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(442, 23);
             textBox14.TabIndex = 1;
             // 
             // textBox15
             // 
-            textBox15.Location = new Point(34, 425);
+            textBox15.Location = new Point(34, 440);
             textBox15.Multiline = true;
             textBox15.Name = "textBox15";
             textBox15.Size = new Size(626, 89);
             textBox15.TabIndex = 1;
             // 
-            // textBox16
+            // radioButton1
             // 
-            textBox16.Location = new Point(172, 551);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(159, 23);
-            textBox16.TabIndex = 1;
-            textBox16.TextChanged += textBox16_TextChanged;
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(162, 100);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(46, 19);
+            radioButton1.TabIndex = 2;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "CPF";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(218, 100);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(52, 19);
+            radioButton2.TabIndex = 3;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "CNPJ";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(14, 25);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(94, 24);
+            radioButton3.TabIndex = 4;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "Masculino";
+            radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            // 
+            // radioButton4
+            // 
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new Point(140, 25);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(88, 24);
+            radioButton4.TabIndex = 4;
+            radioButton4.TabStop = true;
+            radioButton4.Text = "Feminino";
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            radioButton5.AutoSize = true;
+            radioButton5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioButton5.Location = new Point(251, 25);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new Size(71, 24);
+            radioButton5.TabIndex = 4;
+            radioButton5.TabStop = true;
+            radioButton5.Text = "Outros";
+            radioButton5.UseVisualStyleBackColor = true;
+            radioButton5.CheckedChanged += radioButton5_CheckedChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton3);
+            groupBox1.Controls.Add(radioButton5);
+            groupBox1.Controls.Add(radioButton4);
+            groupBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(309, 89);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(351, 55);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = " Gênero ";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Checked = true;
+            checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(172, 572);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(63, 24);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Ativo";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -361,16 +413,18 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(checkBox1);
+            Controls.Add(groupBox1);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
             Controls.Add(textBox2);
             Controls.Add(label2);
-            Controls.Add(textBox4);
             Controls.Add(textBox7);
             Controls.Add(textBox6);
             Controls.Add(textBox8);
             Controls.Add(textBox15);
             Controls.Add(textBox14);
             Controls.Add(textBox12);
-            Controls.Add(textBox16);
             Controls.Add(textBox11);
             Controls.Add(textBox9);
             Controls.Add(textBox13);
@@ -390,8 +444,6 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -400,6 +452,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de clientes";
             Load += Form1_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -410,8 +464,6 @@
         private TextBox textBox1;
         private Label label2;
         private TextBox textBox2;
-        private Label label3;
-        private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -424,7 +476,6 @@
         private Label label14;
         private Label label15;
         private TextBox textBox3;
-        private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
         private TextBox textBox7;
@@ -437,6 +488,12 @@
         private TextBox textBox13;
         private TextBox textBox14;
         private TextBox textBox15;
-        private TextBox textBox16;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton3;
+        private RadioButton radioButton4;
+        private RadioButton radioButton5;
+        private GroupBox groupBox1;
+        private CheckBox checkBox1;
     }
 }
