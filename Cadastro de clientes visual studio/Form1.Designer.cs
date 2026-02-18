@@ -44,7 +44,6 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
-            textBox5 = new TextBox();
             textBox7 = new TextBox();
             textBox9 = new TextBox();
             textBox10 = new TextBox();
@@ -72,6 +71,7 @@
             u = new Button();
             button1 = new Button();
             button3 = new Button();
+            maskedTextBox5 = new MaskedTextBox();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,10 +89,11 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(165, 53);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(117, 23);
-            textBox1.TabIndex = 1;
+            textBox1.Size = new Size(117, 25);
+            textBox1.TabIndex = 0;
             // 
             // label2
             // 
@@ -107,9 +108,10 @@
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox2.Location = new Point(288, 53);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(386, 23);
+            textBox2.Size = new Size(386, 25);
             textBox2.TabIndex = 1;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -172,7 +174,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F);
-            label10.Location = new Point(580, 228);
+            label10.Location = new Point(566, 228);
             label10.Name = "label10";
             label10.Size = new Size(26, 20);
             label10.TabIndex = 0;
@@ -234,13 +236,6 @@
             label15.Text = "Situação Cadastral";
             label15.Click += label1_Click;
             // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(165, 185);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(152, 23);
-            textBox5.TabIndex = 1;
-            // 
             // textBox7
             // 
             textBox7.Location = new Point(512, 185);
@@ -250,17 +245,19 @@
             // 
             // textBox9
             // 
+            textBox9.Font = new Font("Microsoft Sans Serif", 9.75F);
             textBox9.Location = new Point(154, 251);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(406, 23);
-            textBox9.TabIndex = 1;
+            textBox9.Size = new Size(406, 22);
+            textBox9.TabIndex = 7;
             // 
             // textBox10
             // 
+            textBox10.Font = new Font("Microsoft Sans Serif", 9.75F);
             textBox10.Location = new Point(566, 251);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(108, 23);
-            textBox10.TabIndex = 1;
+            textBox10.Size = new Size(108, 22);
+            textBox10.TabIndex = 8;
             // 
             // label16
             // 
@@ -275,25 +272,28 @@
             // 
             // textBox11
             // 
+            textBox11.Font = new Font("Microsoft Sans Serif", 9.75F);
             textBox11.Location = new Point(48, 316);
             textBox11.Name = "textBox11";
-            textBox11.Size = new Size(283, 23);
-            textBox11.TabIndex = 1;
+            textBox11.Size = new Size(283, 22);
+            textBox11.TabIndex = 9;
             // 
             // textBox14
             // 
+            textBox14.Font = new Font("Microsoft Sans Serif", 9.75F);
             textBox14.Location = new Point(410, 376);
             textBox14.Name = "textBox14";
-            textBox14.Size = new Size(264, 23);
-            textBox14.TabIndex = 1;
+            textBox14.Size = new Size(264, 22);
+            textBox14.TabIndex = 13;
             // 
             // textBox15
             // 
+            textBox15.Font = new Font("Microsoft Sans Serif", 9.75F);
             textBox15.Location = new Point(48, 440);
             textBox15.Multiline = true;
             textBox15.Name = "textBox15";
             textBox15.Size = new Size(626, 89);
-            textBox15.TabIndex = 1;
+            textBox15.TabIndex = 14;
             // 
             // radioButton1
             // 
@@ -301,7 +301,7 @@
             radioButton1.Location = new Point(8, 3);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(46, 19);
-            radioButton1.TabIndex = 2;
+            radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
             radioButton1.Text = "CPF";
             radioButton1.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             radioButton3.Location = new Point(14, 25);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(94, 24);
-            radioButton3.TabIndex = 4;
+            radioButton3.TabIndex = 0;
             radioButton3.TabStop = true;
             radioButton3.Text = "Masculino";
             radioButton3.UseVisualStyleBackColor = true;
@@ -389,33 +389,35 @@
             maskedTextBox1.Mask = "000,000,000-00";
             maskedTextBox1.Name = "maskedTextBox1";
             maskedTextBox1.Size = new Size(139, 23);
-            maskedTextBox1.TabIndex = 7;
+            maskedTextBox1.TabIndex = 2;
             // 
             // maskedTextBox2
             // 
+            maskedTextBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
             maskedTextBox2.Location = new Point(512, 185);
             maskedTextBox2.Mask = "00/00/0000";
             maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(162, 23);
-            maskedTextBox2.TabIndex = 7;
+            maskedTextBox2.Size = new Size(162, 22);
+            maskedTextBox2.TabIndex = 5;
             // 
             // maskedTextBox3
             // 
-            maskedTextBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox3.Font = new Font("Microsoft Sans Serif", 9.75F);
             maskedTextBox3.Location = new Point(300, 374);
             maskedTextBox3.Mask = "(00) 00000-0000";
             maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(103, 25);
-            maskedTextBox3.TabIndex = 7;
+            maskedTextBox3.Size = new Size(103, 22);
+            maskedTextBox3.TabIndex = 12;
             maskedTextBox3.MaskInputRejected += maskedTextBox3_MaskInputRejected;
             // 
             // maskedTextBox4
             // 
+            maskedTextBox4.Font = new Font("Microsoft Sans Serif", 9.75F);
             maskedTextBox4.Location = new Point(48, 251);
             maskedTextBox4.Mask = "00000-000";
             maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(100, 23);
-            maskedTextBox4.TabIndex = 7;
+            maskedTextBox4.Size = new Size(100, 22);
+            maskedTextBox4.TabIndex = 6;
             maskedTextBox4.MaskInputRejected += maskedTextBox3_MaskInputRejected;
             // 
             // flowLayoutPanel1
@@ -433,13 +435,14 @@
             // comboBox1
             // 
             comboBox1.DropDownHeight = 200;
+            comboBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
             comboBox1.FormattingEnabled = true;
             comboBox1.IntegralHeight = false;
             comboBox1.Items.AddRange(new object[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA)", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" });
             comboBox1.Location = new Point(48, 376);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(246, 23);
-            comboBox1.TabIndex = 9;
+            comboBox1.Size = new Size(246, 24);
+            comboBox1.TabIndex = 11;
             // 
             // label3
             // 
@@ -454,19 +457,21 @@
             // 
             // comboBox2
             // 
+            comboBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "" });
             comboBox2.Location = new Point(321, 185);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(185, 23);
-            comboBox2.TabIndex = 10;
+            comboBox2.Size = new Size(185, 24);
+            comboBox2.TabIndex = 4;
             // 
             // comboBox3
             // 
+            comboBox3.Font = new Font("Microsoft Sans Serif", 9.75F);
             comboBox3.FormattingEnabled = true;
             comboBox3.Location = new Point(337, 316);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(337, 23);
+            comboBox3.Size = new Size(337, 24);
             comboBox3.TabIndex = 10;
             // 
             // pictureBox1
@@ -519,17 +524,26 @@
             button3.BackColor = Color.Gainsboro;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = SystemColors.ControlText;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(611, 608);
+            button3.Location = new Point(606, 607);
             button3.Name = "button3";
             button3.RightToLeft = RightToLeft.No;
-            button3.Size = new Size(63, 28);
+            button3.Size = new Size(68, 29);
             button3.TabIndex = 12;
             button3.Text = "Salvar";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
+            // 
+            // maskedTextBox5
+            // 
+            maskedTextBox5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox5.Location = new Point(165, 184);
+            maskedTextBox5.Mask = "0,000,000";
+            maskedTextBox5.Name = "maskedTextBox5";
+            maskedTextBox5.Size = new Size(150, 25);
+            maskedTextBox5.TabIndex = 15;
             // 
             // Form1
             // 
@@ -539,6 +553,7 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(maskedTextBox5);
             Controls.Add(button1);
             Controls.Add(button3);
             Controls.Add(u);
@@ -559,7 +574,6 @@
             Controls.Add(textBox14);
             Controls.Add(textBox11);
             Controls.Add(textBox9);
-            Controls.Add(textBox5);
             Controls.Add(textBox10);
             Controls.Add(textBox1);
             Controls.Add(label10);
@@ -610,7 +624,6 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private TextBox textBox5;
         private TextBox textBox7;
         private TextBox textBox9;
         private TextBox textBox10;
@@ -638,5 +651,6 @@
         private Button u;
         private Button button1;
         private Button button3;
+        private MaskedTextBox maskedTextBox5;
     }
 }
