@@ -93,12 +93,38 @@ namespace Cadastro_de_clientes_visual_studio
             string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
             NpgsqlConnection con = new NpgsqlConnection(constring);
             con.Open();
-            string query = "SELECT id, nome, documento FROM public.\"ClientesInformacoes\";";
-            NpgsqlCommand cmd = new NpgsqlCommand (query, con);
+
+            string query = "SELECT id, nome, documento FROM public.\"ClientesInformacoes\" ORDER BY id ASC;";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(reader);
             dataGridView1.DataSource = dt;
+            con.Close();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+            NpgsqlConnection con = new NpgsqlConnection(constring);
+            con.Open();
+
+            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento) VALUES (@nome, @documento);";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@nome", textBox2.Text);
+            cmd.Parameters.AddWithValue("@documento", maskedTextBox1.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Cliente inserido com sucesso!");
+
+            
+            button2_Click(sender, e);
+
+            
+            textBox2.Clear();
+            maskedTextBox1.Clear();
         }
     }
-}
+    }
+

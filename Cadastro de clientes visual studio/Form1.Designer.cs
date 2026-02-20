@@ -74,6 +74,7 @@
             maskedTextBox5 = new MaskedTextBox();
             button2 = new Button();
             dataGridView1 = new DataGridView();
+            button7 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -566,6 +567,16 @@
             dataGridView1.Size = new Size(127, 59);
             dataGridView1.TabIndex = 17;
             // 
+            // button7
+            // 
+            button7.Location = new Point(256, 607);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 18;
+            button7.Text = "button7";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -574,6 +585,7 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(button7);
             Controls.Add(dataGridView1);
             Controls.Add(button2);
             Controls.Add(maskedTextBox5);
@@ -678,5 +690,6 @@
         private MaskedTextBox maskedTextBox5;
         private Button button2;
         private DataGridView dataGridView1;
+        private Button button7;
     }
 }
