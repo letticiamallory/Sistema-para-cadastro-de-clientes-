@@ -1,3 +1,7 @@
+using Npgsql;
+using System.Data;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+
 namespace Cadastro_de_clientes_visual_studio
 {
     public partial class Form1 : Form
@@ -82,6 +86,19 @@ namespace Cadastro_de_clientes_visual_studio
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+            NpgsqlConnection con = new NpgsqlConnection(constring);
+            con.Open();
+            string query = "SELECT id, nome, documento FROM public.\"ClientesInformacoes\";";
+            NpgsqlCommand cmd = new NpgsqlCommand (query, con);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            dataGridView1.DataSource = dt;
         }
     }
 }
