@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtid = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtname = new TextBox();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -45,33 +45,33 @@
             label14 = new Label();
             label15 = new Label();
             textBox7 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
+            textendereco = new TextBox();
+            textnum = new TextBox();
             label16 = new Label();
-            textBox11 = new TextBox();
-            textBox14 = new TextBox();
-            textBox15 = new TextBox();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton5 = new RadioButton();
+            textbairro = new TextBox();
+            textemail = new TextBox();
+            textobs = new TextBox();
+            radiocpf = new RadioButton();
+            radiocnpj = new RadioButton();
+            radiomasc = new RadioButton();
+            radiofem = new RadioButton();
+            radiooutros = new RadioButton();
             groupBox1 = new GroupBox();
-            checkBox1 = new CheckBox();
-            maskedTextBox1 = new MaskedTextBox();
-            maskedTextBox2 = new MaskedTextBox();
-            maskedTextBox3 = new MaskedTextBox();
-            maskedTextBox4 = new MaskedTextBox();
+            checkativo = new CheckBox();
+            maskeddoc = new MaskedTextBox();
+            maskeddata = new MaskedTextBox();
+            maskedcel = new MaskedTextBox();
+            maskedcep = new MaskedTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            comboBox1 = new ComboBox();
+            comboestado = new ComboBox();
             label3 = new Label();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
+            combocivil = new ComboBox();
+            combocidade = new ComboBox();
             pictureBox1 = new PictureBox();
             u = new Button();
             button1 = new Button();
-            button3 = new Button();
-            maskedTextBox5 = new MaskedTextBox();
+            buttonsalvar = new Button();
+            maskedrg = new MaskedTextBox();
             button2 = new Button();
             dataGridView1 = new DataGridView();
             button7 = new Button();
@@ -91,13 +91,13 @@
             label1.Text = "Código";
             label1.Click += label1_Click;
             // 
-            // textBox1
+            // txtid
             // 
-            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(165, 53);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(117, 25);
-            textBox1.TabIndex = 0;
+            txtid.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtid.Location = new Point(165, 53);
+            txtid.Name = "txtid";
+            txtid.Size = new Size(117, 25);
+            txtid.TabIndex = 0;
             // 
             // label2
             // 
@@ -110,14 +110,14 @@
             label2.Text = "Nome do Cliente";
             label2.Click += label2_Click;
             // 
-            // textBox2
+            // txtname
             // 
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(288, 53);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(386, 25);
-            textBox2.TabIndex = 1;
-            textBox2.TextChanged += textBox2_TextChanged;
+            txtname.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtname.Location = new Point(288, 53);
+            txtname.Name = "txtname";
+            txtname.Size = new Size(386, 25);
+            txtname.TabIndex = 1;
+            txtname.TextChanged += textBox2_TextChanged;
             // 
             // label5
             // 
@@ -247,21 +247,21 @@
             textBox7.Size = new Size(162, 23);
             textBox7.TabIndex = 1;
             // 
-            // textBox9
+            // textendereco
             // 
-            textBox9.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox9.Location = new Point(154, 251);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(406, 22);
-            textBox9.TabIndex = 7;
+            textendereco.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textendereco.Location = new Point(154, 251);
+            textendereco.Name = "textendereco";
+            textendereco.Size = new Size(406, 22);
+            textendereco.TabIndex = 7;
             // 
-            // textBox10
+            // textnum
             // 
-            textBox10.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox10.Location = new Point(566, 251);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(108, 22);
-            textBox10.TabIndex = 8;
+            textnum.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textnum.Location = new Point(566, 251);
+            textnum.Name = "textnum";
+            textnum.Size = new Size(108, 22);
+            textnum.TabIndex = 8;
             // 
             // label16
             // 
@@ -274,98 +274,98 @@
             label16.Text = "Bairro";
             label16.Click += label1_Click;
             // 
-            // textBox11
+            // textbairro
             // 
-            textBox11.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox11.Location = new Point(48, 316);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(283, 22);
-            textBox11.TabIndex = 9;
+            textbairro.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textbairro.Location = new Point(48, 316);
+            textbairro.Name = "textbairro";
+            textbairro.Size = new Size(283, 22);
+            textbairro.TabIndex = 9;
             // 
-            // textBox14
+            // textemail
             // 
-            textBox14.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox14.Location = new Point(410, 376);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(264, 22);
-            textBox14.TabIndex = 13;
+            textemail.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textemail.Location = new Point(410, 376);
+            textemail.Name = "textemail";
+            textemail.Size = new Size(264, 22);
+            textemail.TabIndex = 13;
             // 
-            // textBox15
+            // textobs
             // 
-            textBox15.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox15.Location = new Point(48, 440);
-            textBox15.Multiline = true;
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(626, 89);
-            textBox15.TabIndex = 14;
+            textobs.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textobs.Location = new Point(48, 440);
+            textobs.Multiline = true;
+            textobs.Name = "textobs";
+            textobs.Size = new Size(626, 89);
+            textobs.TabIndex = 14;
             // 
-            // radioButton1
+            // radiocpf
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(8, 3);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(46, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "CPF";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
+            radiocpf.AutoSize = true;
+            radiocpf.Location = new Point(8, 3);
+            radiocpf.Name = "radiocpf";
+            radiocpf.Size = new Size(46, 19);
+            radiocpf.TabIndex = 0;
+            radiocpf.TabStop = true;
+            radiocpf.Text = "CPF";
+            radiocpf.UseVisualStyleBackColor = true;
+            radiocpf.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // radioButton2
+            // radiocnpj
             // 
-            radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radioButton2.Location = new Point(60, 3);
-            radioButton2.Margin = new Padding(3, 3, 17, 10);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(52, 19);
-            radioButton2.TabIndex = 3;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "CNPJ";
-            radioButton2.TextAlign = ContentAlignment.MiddleRight;
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            radiocnpj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radiocnpj.Location = new Point(60, 3);
+            radiocnpj.Margin = new Padding(3, 3, 17, 10);
+            radiocnpj.Name = "radiocnpj";
+            radiocnpj.Size = new Size(52, 19);
+            radiocnpj.TabIndex = 3;
+            radiocnpj.TabStop = true;
+            radiocnpj.Text = "CNPJ";
+            radiocnpj.TextAlign = ContentAlignment.MiddleRight;
+            radiocnpj.UseVisualStyleBackColor = true;
+            radiocnpj.CheckedChanged += radioButton2_CheckedChanged;
             // 
-            // radioButton3
+            // radiomasc
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(14, 25);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(94, 24);
-            radioButton3.TabIndex = 0;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Masculino";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            radiomasc.AutoSize = true;
+            radiomasc.Location = new Point(14, 25);
+            radiomasc.Name = "radiomasc";
+            radiomasc.Size = new Size(94, 24);
+            radiomasc.TabIndex = 0;
+            radiomasc.TabStop = true;
+            radiomasc.Text = "Masculino";
+            radiomasc.UseVisualStyleBackColor = true;
+            radiomasc.CheckedChanged += radioButton3_CheckedChanged;
             // 
-            // radioButton4
+            // radiofem
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(140, 25);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(88, 24);
-            radioButton4.TabIndex = 4;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Feminino";
-            radioButton4.UseVisualStyleBackColor = true;
+            radiofem.AutoSize = true;
+            radiofem.Location = new Point(140, 25);
+            radiofem.Name = "radiofem";
+            radiofem.Size = new Size(88, 24);
+            radiofem.TabIndex = 4;
+            radiofem.TabStop = true;
+            radiofem.Text = "Feminino";
+            radiofem.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // radiooutros
             // 
-            radioButton5.AutoSize = true;
-            radioButton5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioButton5.Location = new Point(251, 25);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(71, 24);
-            radioButton5.TabIndex = 4;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "Outros";
-            radioButton5.UseVisualStyleBackColor = true;
-            radioButton5.CheckedChanged += radioButton5_CheckedChanged;
+            radiooutros.AutoSize = true;
+            radiooutros.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radiooutros.Location = new Point(251, 25);
+            radiooutros.Name = "radiooutros";
+            radiooutros.Size = new Size(71, 24);
+            radiooutros.TabIndex = 4;
+            radiooutros.TabStop = true;
+            radiooutros.Text = "Outros";
+            radiooutros.UseVisualStyleBackColor = true;
+            radiooutros.CheckedChanged += radioButton5_CheckedChanged;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton5);
-            groupBox1.Controls.Add(radioButton4);
+            groupBox1.Controls.Add(radiomasc);
+            groupBox1.Controls.Add(radiooutros);
+            groupBox1.Controls.Add(radiofem);
             groupBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(323, 89);
             groupBox1.Name = "groupBox1";
@@ -374,61 +374,62 @@
             groupBox1.TabStop = false;
             groupBox1.Text = " Gênero ";
             // 
-            // checkBox1
+            // checkativo
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(186, 572);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(63, 24);
-            checkBox1.TabIndex = 6;
-            checkBox1.Text = "Ativo";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkativo.AutoSize = true;
+            checkativo.Checked = true;
+            checkativo.CheckState = CheckState.Checked;
+            checkativo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkativo.Location = new Point(186, 572);
+            checkativo.Name = "checkativo";
+            checkativo.Size = new Size(63, 24);
+            checkativo.TabIndex = 6;
+            checkativo.Text = "Ativo";
+            checkativo.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // maskeddoc
             // 
-            maskedTextBox1.Location = new Point(165, 121);
-            maskedTextBox1.Mask = "000,000,000-00";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(139, 23);
-            maskedTextBox1.TabIndex = 2;
+            maskeddoc.CutCopyMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            maskeddoc.Location = new Point(165, 121);
+            maskeddoc.Mask = "000,000,000-00";
+            maskeddoc.Name = "maskeddoc";
+            maskeddoc.Size = new Size(139, 23);
+            maskeddoc.TabIndex = 2;
             // 
-            // maskedTextBox2
+            // maskeddata
             // 
-            maskedTextBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            maskedTextBox2.Location = new Point(512, 185);
-            maskedTextBox2.Mask = "00/00/0000";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(162, 22);
-            maskedTextBox2.TabIndex = 5;
+            maskeddata.Font = new Font("Microsoft Sans Serif", 9.75F);
+            maskeddata.Location = new Point(512, 185);
+            maskeddata.Mask = "00/00/0000";
+            maskeddata.Name = "maskeddata";
+            maskeddata.Size = new Size(162, 22);
+            maskeddata.TabIndex = 5;
             // 
-            // maskedTextBox3
+            // maskedcel
             // 
-            maskedTextBox3.Font = new Font("Microsoft Sans Serif", 9.75F);
-            maskedTextBox3.Location = new Point(300, 374);
-            maskedTextBox3.Mask = "(00) 00000-0000";
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(103, 22);
-            maskedTextBox3.TabIndex = 12;
-            maskedTextBox3.MaskInputRejected += maskedTextBox3_MaskInputRejected;
+            maskedcel.Font = new Font("Microsoft Sans Serif", 9.75F);
+            maskedcel.Location = new Point(300, 374);
+            maskedcel.Mask = "(00) 00000-0000";
+            maskedcel.Name = "maskedcel";
+            maskedcel.Size = new Size(103, 22);
+            maskedcel.TabIndex = 12;
+            maskedcel.MaskInputRejected += maskedTextBox3_MaskInputRejected;
             // 
-            // maskedTextBox4
+            // maskedcep
             // 
-            maskedTextBox4.Font = new Font("Microsoft Sans Serif", 9.75F);
-            maskedTextBox4.Location = new Point(48, 251);
-            maskedTextBox4.Mask = "00000-000";
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(100, 22);
-            maskedTextBox4.TabIndex = 6;
-            maskedTextBox4.MaskInputRejected += maskedTextBox3_MaskInputRejected;
+            maskedcep.Font = new Font("Microsoft Sans Serif", 9.75F);
+            maskedcep.Location = new Point(48, 251);
+            maskedcep.Mask = "00000-000";
+            maskedcep.Name = "maskedcep";
+            maskedcep.Size = new Size(100, 22);
+            maskedcep.TabIndex = 6;
+            maskedcep.MaskInputRejected += maskedTextBox3_MaskInputRejected;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.Controls.Add(radioButton2);
-            flowLayoutPanel1.Controls.Add(radioButton1);
+            flowLayoutPanel1.Controls.Add(radiocnpj);
+            flowLayoutPanel1.Controls.Add(radiocpf);
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.Location = new Point(165, 99);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -436,17 +437,17 @@
             flowLayoutPanel1.TabIndex = 8;
             flowLayoutPanel1.WrapContents = false;
             // 
-            // comboBox1
+            // comboestado
             // 
-            comboBox1.DropDownHeight = 200;
-            comboBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.IntegralHeight = false;
-            comboBox1.Items.AddRange(new object[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA)", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" });
-            comboBox1.Location = new Point(48, 376);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(246, 24);
-            comboBox1.TabIndex = 11;
+            comboestado.DropDownHeight = 200;
+            comboestado.Font = new Font("Microsoft Sans Serif", 9.75F);
+            comboestado.FormattingEnabled = true;
+            comboestado.IntegralHeight = false;
+            comboestado.Items.AddRange(new object[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA)", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" });
+            comboestado.Location = new Point(48, 376);
+            comboestado.Name = "comboestado";
+            comboestado.Size = new Size(246, 24);
+            comboestado.TabIndex = 11;
             // 
             // label3
             // 
@@ -459,24 +460,24 @@
             label3.Text = "Estado";
             label3.Click += label1_Click;
             // 
-            // comboBox2
+            // combocivil
             // 
-            comboBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "" });
-            comboBox2.Location = new Point(321, 185);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(185, 24);
-            comboBox2.TabIndex = 4;
+            combocivil.Font = new Font("Microsoft Sans Serif", 9.75F);
+            combocivil.FormattingEnabled = true;
+            combocivil.Items.AddRange(new object[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "" });
+            combocivil.Location = new Point(321, 185);
+            combocivil.Name = "combocivil";
+            combocivil.Size = new Size(185, 24);
+            combocivil.TabIndex = 4;
             // 
-            // comboBox3
+            // combocidade
             // 
-            comboBox3.Font = new Font("Microsoft Sans Serif", 9.75F);
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(337, 316);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(337, 24);
-            comboBox3.TabIndex = 10;
+            combocidade.Font = new Font("Microsoft Sans Serif", 9.75F);
+            combocidade.FormattingEnabled = true;
+            combocidade.Location = new Point(337, 316);
+            combocidade.Name = "combocidade";
+            combocidade.Size = new Size(337, 24);
+            combocidade.TabIndex = 10;
             // 
             // pictureBox1
             // 
@@ -523,31 +524,31 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button3
+            // buttonsalvar
             // 
-            button3.BackColor = Color.Gainsboro;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ControlText;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(606, 607);
-            button3.Name = "button3";
-            button3.RightToLeft = RightToLeft.No;
-            button3.Size = new Size(68, 29);
-            button3.TabIndex = 12;
-            button3.Text = "Salvar";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            buttonsalvar.BackColor = Color.Gainsboro;
+            buttonsalvar.FlatAppearance.BorderSize = 0;
+            buttonsalvar.FlatStyle = FlatStyle.Flat;
+            buttonsalvar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonsalvar.ForeColor = SystemColors.ControlText;
+            buttonsalvar.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonsalvar.Location = new Point(606, 607);
+            buttonsalvar.Name = "buttonsalvar";
+            buttonsalvar.RightToLeft = RightToLeft.No;
+            buttonsalvar.Size = new Size(68, 29);
+            buttonsalvar.TabIndex = 12;
+            buttonsalvar.Text = "Salvar";
+            buttonsalvar.UseVisualStyleBackColor = false;
+            buttonsalvar.Click += button3_Click;
             // 
-            // maskedTextBox5
+            // maskedrg
             // 
-            maskedTextBox5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox5.Location = new Point(165, 184);
-            maskedTextBox5.Mask = "0,000,000";
-            maskedTextBox5.Name = "maskedTextBox5";
-            maskedTextBox5.Size = new Size(150, 25);
-            maskedTextBox5.TabIndex = 15;
+            maskedrg.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedrg.Location = new Point(165, 184);
+            maskedrg.Mask = "0,000,000";
+            maskedrg.Name = "maskedrg";
+            maskedrg.Size = new Size(150, 25);
+            maskedrg.TabIndex = 15;
             // 
             // button2
             // 
@@ -588,29 +589,29 @@
             Controls.Add(button7);
             Controls.Add(dataGridView1);
             Controls.Add(button2);
-            Controls.Add(maskedTextBox5);
+            Controls.Add(maskedrg);
             Controls.Add(button1);
-            Controls.Add(button3);
+            Controls.Add(buttonsalvar);
             Controls.Add(u);
             Controls.Add(pictureBox1);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(maskedTextBox4);
-            Controls.Add(maskedTextBox3);
-            Controls.Add(maskedTextBox2);
-            Controls.Add(maskedTextBox1);
-            Controls.Add(checkBox1);
+            Controls.Add(combocidade);
+            Controls.Add(combocivil);
+            Controls.Add(comboestado);
+            Controls.Add(maskedcep);
+            Controls.Add(maskedcel);
+            Controls.Add(maskeddata);
+            Controls.Add(maskeddoc);
+            Controls.Add(checkativo);
             Controls.Add(groupBox1);
-            Controls.Add(textBox2);
+            Controls.Add(txtname);
             Controls.Add(label2);
             Controls.Add(textBox7);
-            Controls.Add(textBox15);
-            Controls.Add(textBox14);
-            Controls.Add(textBox11);
-            Controls.Add(textBox9);
-            Controls.Add(textBox10);
-            Controls.Add(textBox1);
+            Controls.Add(textobs);
+            Controls.Add(textemail);
+            Controls.Add(textbairro);
+            Controls.Add(textendereco);
+            Controls.Add(textnum);
+            Controls.Add(txtid);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label14);
@@ -646,9 +647,9 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtid;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtname;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -661,33 +662,33 @@
         private Label label14;
         private Label label15;
         private TextBox textBox7;
-        private TextBox textBox9;
-        private TextBox textBox10;
+        private TextBox textendereco;
+        private TextBox textnum;
         private Label label16;
-        private TextBox textBox11;
-        private TextBox textBox14;
-        private TextBox textBox15;
-        private RadioButton radioButton1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton5;
+        private TextBox textbairro;
+        private TextBox textemail;
+        private TextBox textobs;
+        private RadioButton radiocpf;
+        private RadioButton radiomasc;
+        private RadioButton radiofem;
+        private RadioButton radiooutros;
         private GroupBox groupBox1;
-        private CheckBox checkBox1;
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox2;
-        private MaskedTextBox maskedTextBox3;
-        private MaskedTextBox maskedTextBox4;
+        private CheckBox checkativo;
+        private MaskedTextBox maskeddoc;
+        private MaskedTextBox maskeddata;
+        private MaskedTextBox maskedcel;
+        private MaskedTextBox maskedcep;
         private FlowLayoutPanel flowLayoutPanel1;
-        public RadioButton radioButton2;
-        private ComboBox comboBox1;
+        public RadioButton radiocnpj;
+        private ComboBox comboestado;
         private Label label3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
+        private ComboBox combocivil;
+        private ComboBox combocidade;
         private PictureBox pictureBox1;
         private Button u;
         private Button button1;
-        private Button button3;
-        private MaskedTextBox maskedTextBox5;
+        private Button buttonsalvar;
+        private MaskedTextBox maskedrg;
         private Button button2;
         private DataGridView dataGridView1;
         private Button button7;

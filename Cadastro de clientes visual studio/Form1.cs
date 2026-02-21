@@ -80,6 +80,12 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (Validacoes() == true)
+            {
+                return;
+            }
+
+            SalvarClientePostgreSql();
 
         }
 
@@ -109,22 +115,133 @@ namespace Cadastro_de_clientes_visual_studio
             NpgsqlConnection con = new NpgsqlConnection(constring);
             con.Open();
 
-            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento) VALUES (@nome, @documento);";
+            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento, gênero, rg, estado_civil, data_nascimento, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) VALUES (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao );";
             NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@nome", textBox2.Text);
-            cmd.Parameters.AddWithValue("@documento", maskedTextBox1.Text);
+            cmd.Parameters.AddWithValue("@nome", txtname.Text);
+            cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
+
+            cmd.Parameters.AddWithValue("@gênero", "Genero");
+
+            cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
+            cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
+
+            cmd.Parameters.AddWithValue("@data_nascimento", maskeddata.Text);
+
+            cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
+            cmd.Parameters.AddWithValue("@endereco", textendereco.Text);
+            cmd.Parameters.AddWithValue("@numero", textnum.Text);
+            cmd.Parameters.AddWithValue("@bairro", textbairro.Text);
+            cmd.Parameters.AddWithValue("@cidade", combocidade.Text);
+            cmd.Parameters.AddWithValue("@estado", comboestado.Text);
+            cmd.Parameters.AddWithValue("@celular", maskedcel.Text);
+            cmd.Parameters.AddWithValue("@email", textemail.Text);
+            cmd.Parameters.AddWithValue("@obs", textobs.Text);
+
+            cmd.Parameters.AddWithValue("@situacao", "Ativo");
             cmd.ExecuteNonQuery();
             con.Close();
 
             MessageBox.Show("Cliente inserido com sucesso!");
 
-            
+
             button2_Click(sender, e);
 
-            
-            textBox2.Clear();
-            maskedTextBox1.Clear();
+
+            txtname.Clear();
+            maskeddoc.Clear();
+        }
+
+        private void SalvarClientePostgreSql()
+        {
+            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+            NpgsqlConnection con = new NpgsqlConnection(constring);
+            con.Open();
+
+            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento, gênero, rg, estado_civil, data_nascimento, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) VALUES (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao );";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@nome", txtname.Text);
+            cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
+
+            if (radiomasc.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@gênero", "Masculino");
+            }
+            else if (radiofem.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@gênero", "Feminino");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@gênero", "Outros");
+            }
+
+            cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
+            cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
+
+            cmd.Parameters.AddWithValue("@data_nascimento", maskeddata.Text);
+
+            cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
+            cmd.Parameters.AddWithValue("@endereco", textendereco.Text);
+            cmd.Parameters.AddWithValue("@numero", textnum.Text);
+            cmd.Parameters.AddWithValue("@bairro", textbairro.Text);
+            cmd.Parameters.AddWithValue("@cidade", combocidade.Text);
+            cmd.Parameters.AddWithValue("@estado", comboestado.Text);
+            cmd.Parameters.AddWithValue("@celular", maskedcel.Text);
+            cmd.Parameters.AddWithValue("@email", textemail.Text);
+            cmd.Parameters.AddWithValue("@obs", textobs.Text);
+
+            if (checkativo.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@situacao", "Ativo");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@situacao", "Inativo");
+            }
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Cliente inserido com sucesso!");
+        }
+
+        private bool Validacoes()
+        {
+            if (txtname.Text == "")
+            {
+                MessageBox.Show("O campo 'Nome' é obrigatório.");
+                txtname.Focus();
+                return true;
+            }
+
+            if (radiocpf.Checked == false && radiocnpj.Checked == false)
+            {
+                MessageBox.Show("Selecione o tipo de documento\r(CPF ou CNPJ).");
+                return true;
+            }
+
+            if (maskeddoc.Text == "")
+            {
+                if (radiocpf.Checked == true)
+                {
+                    MessageBox.Show("O campo 'CPF' é obrigatório.");
+                }
+                else
+                {
+                    MessageBox.Show("O campo 'CNPJ' é obrigatório.");
+                    maskeddoc.Focus();
+                    return true;
+                }
+
+                if (radiomasc.Checked == false && radiofem.Checked == false && radiooutros.Checked == false)
+                {
+                    MessageBox.Show("Selecione o gênero.");
+                    return true;
+                } 
+
+
+            }
+            return false;
         }
     }
-    }
-
+}
