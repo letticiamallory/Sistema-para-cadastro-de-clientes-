@@ -94,116 +94,68 @@ namespace Cadastro_de_clientes_visual_studio
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
-            NpgsqlConnection con = new NpgsqlConnection(constring);
-            con.Open();
-
-            string query = "SELECT id, nome, documento FROM public.\"ClientesInformacoes\" ORDER BY id ASC;";
-            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(reader);
-            dataGridView1.DataSource = dt;
-            con.Close();
-        }
-
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
-            NpgsqlConnection con = new NpgsqlConnection(constring);
-            con.Open();
-
-            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento, gênero, rg, estado_civil, data_nascimento, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) VALUES (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao );";
-            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@nome", txtname.Text);
-            cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
-
-            cmd.Parameters.AddWithValue("@gênero", "Genero");
-
-            cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
-            cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
-
-            cmd.Parameters.AddWithValue("@data_nascimento", maskeddata.Text);
-
-            cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
-            cmd.Parameters.AddWithValue("@endereco", textendereco.Text);
-            cmd.Parameters.AddWithValue("@numero", textnum.Text);
-            cmd.Parameters.AddWithValue("@bairro", textbairro.Text);
-            cmd.Parameters.AddWithValue("@cidade", combocidade.Text);
-            cmd.Parameters.AddWithValue("@estado", comboestado.Text);
-            cmd.Parameters.AddWithValue("@celular", maskedcel.Text);
-            cmd.Parameters.AddWithValue("@email", textemail.Text);
-            cmd.Parameters.AddWithValue("@obs", textobs.Text);
-
-            cmd.Parameters.AddWithValue("@situacao", "Ativo");
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Cliente inserido com sucesso!");
-
-
-            button2_Click(sender, e);
-
-
-            txtname.Clear();
-            maskeddoc.Clear();
-        }
-
         private void SalvarClientePostgreSql()
         {
             string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
-            NpgsqlConnection con = new NpgsqlConnection(constring);
-            con.Open();
 
-            string query = "INSERT INTO public.\"ClientesInformacoes\" (nome, documento, gênero, rg, estado_civil, data_nascimento, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) VALUES (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao );";
-            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@nome", txtname.Text);
-            cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
-
-            if (radiomasc.Checked == true)
+            using (NpgsqlConnection con = new NpgsqlConnection(constring))
             {
-                cmd.Parameters.AddWithValue("@gênero", "Masculino");
+                con.Open();
+
+
+                string query = @"INSERT INTO public.""ClientesInformacoes"" 
+                        (nome, documento, gênero, rg, estado_civil, data_nascimento, 
+                         cep, endereco, numero, bairro, cidade, estado, celular, 
+                         email, obs, situacao) 
+                        VALUES 
+                        (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, 
+                         @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, 
+                         @email, @obs, @situacao)
+                        RETURNING id;";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, con))
+                {
+                    // Seus parâmetros (igual você já tem)
+                    cmd.Parameters.AddWithValue("@nome", txtname.Text);
+                    cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
+
+                    if (radiomasc.Checked == true)
+                        cmd.Parameters.AddWithValue("@gênero", "Masculino");
+                    else if (radiofem.Checked == true)
+                        cmd.Parameters.AddWithValue("@gênero", "Feminino");
+                    else
+                        cmd.Parameters.AddWithValue("@gênero", "Outros");
+
+                    cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
+                    cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
+                    cmd.Parameters.AddWithValue("@data_nascimento", Convert.ToDateTime(maskeddata.Text));
+                    cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
+                    cmd.Parameters.AddWithValue("@endereco", textendereco.Text);
+                    cmd.Parameters.AddWithValue("@numero", textnum.Text);
+                    cmd.Parameters.AddWithValue("@bairro", textbairro.Text);
+                    cmd.Parameters.AddWithValue("@cidade", combocidade.Text);
+                    cmd.Parameters.AddWithValue("@estado", comboestado.Text);
+                    cmd.Parameters.AddWithValue("@celular", maskedcel.Text);
+                    cmd.Parameters.AddWithValue("@email", textemail.Text);
+                    cmd.Parameters.AddWithValue("@obs", textobs.Text);
+
+                    if (checkativo.Checked == true)
+                        cmd.Parameters.AddWithValue("@situacao", "Ativo");
+                    else
+                        cmd.Parameters.AddWithValue("@situacao", "Inativo");
+
+
+                    int novoId = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+                    txtid.Text = novoId.ToString();
+                }
+
+                con.Close();
+                MessageBox.Show("Cliente inserido com sucesso!");
             }
-            else if (radiofem.Checked == true)
-            {
-                cmd.Parameters.AddWithValue("@gênero", "Feminino");
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@gênero", "Outros");
-            }
-
-            cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
-            cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
-
-            cmd.Parameters.AddWithValue("@data_nascimento", maskeddata.Text);
-
-            cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
-            cmd.Parameters.AddWithValue("@endereco", textendereco.Text);
-            cmd.Parameters.AddWithValue("@numero", textnum.Text);
-            cmd.Parameters.AddWithValue("@bairro", textbairro.Text);
-            cmd.Parameters.AddWithValue("@cidade", combocidade.Text);
-            cmd.Parameters.AddWithValue("@estado", comboestado.Text);
-            cmd.Parameters.AddWithValue("@celular", maskedcel.Text);
-            cmd.Parameters.AddWithValue("@email", textemail.Text);
-            cmd.Parameters.AddWithValue("@obs", textobs.Text);
-
-            if (checkativo.Checked == true)
-            {
-                cmd.Parameters.AddWithValue("@situacao", "Ativo");
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@situacao", "Inativo");
-            }
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Cliente inserido com sucesso!");
         }
+
 
         private bool Validacoes()
         {
@@ -237,11 +189,72 @@ namespace Cadastro_de_clientes_visual_studio
                 {
                     MessageBox.Show("Selecione o gênero.");
                     return true;
-                } 
+                }
 
+                DateTime dataValida;
+                string dataTexto = maskeddata.Text;
+
+
+                if (!DateTime.TryParseExact(dataTexto, "dd/MM/yyyy",
+                                            System.Globalization.CultureInfo.InvariantCulture,
+                                            System.Globalization.DateTimeStyles.None,
+                                            out dataValida))
+                {
+                    MessageBox.Show("Data de nascimento inválida. Use o formato dd/mm/yyyy.",
+                                   "Erro de validação",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Warning);
+                    maskeddata.Focus();
+                }
+
+                if (dataValida > DateTime.Today)
+                {
+                    MessageBox.Show("A data de nascimento não pode ser futura.",
+                                   "Erro de validação",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Warning);
+                    maskeddata.Focus();
+                    return false;
+                }
+
+
+                if (dataValida < new DateTime(1904, 1, 1))
+                {
+                    MessageBox.Show("Data de nascimento inválida");
+                    maskeddata.Focus();
+                    return false;
+                }
 
             }
             return false;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja limpar todos os campos?", "Limpar campos", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+
+            txtid.Clear();
+            txtname.Clear();
+            maskeddoc.Clear();
+            maskedrg.Clear();
+            maskeddata.Clear();
+            maskedcep.Clear();
+            textendereco.Clear();
+            textnum.Clear();
+            textbairro.Clear();
+            textemail.Clear();
+            textobs.Clear();
+            radiomasc.Checked = false;
+            radiofem.Checked = false;
+            radiooutros.Checked = false;
+            radiocpf.Checked = false;
+            radiocnpj.Checked = false;
+            combocivil.SelectedIndex = -1;
+            comboestado.SelectedIndex = -1;
+            combocidade.SelectedIndex = -1;
+            checkativo.Checked = false;
+
         }
     }
 }

@@ -72,13 +72,9 @@
             button1 = new Button();
             buttonsalvar = new Button();
             maskedrg = new MaskedTextBox();
-            button2 = new Button();
-            dataGridView1 = new DataGridView();
-            button7 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -550,34 +546,6 @@
             maskedrg.Size = new Size(150, 25);
             maskedrg.TabIndex = 15;
             // 
-            // button2
-            // 
-            button2.Location = new Point(356, 607);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 16;
-            button2.Text = "postgresql";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(335, 537);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(127, 59);
-            dataGridView1.TabIndex = 17;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(256, 607);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 18;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click_1;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -586,9 +554,6 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
-            Controls.Add(button7);
-            Controls.Add(dataGridView1);
-            Controls.Add(button2);
             Controls.Add(maskedrg);
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
@@ -639,7 +604,6 @@
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -689,8 +653,5 @@
         private Button button1;
         private Button buttonsalvar;
         private MaskedTextBox maskedrg;
-        private Button button2;
-        private DataGridView dataGridView1;
-        private Button button7;
     }
 }
