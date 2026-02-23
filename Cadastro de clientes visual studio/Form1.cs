@@ -30,7 +30,7 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            Funcoes.PriMaiuscula(txtname);
         }
 
         private void textBox16_TextChanged(object sender, EventArgs e)
@@ -45,22 +45,31 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-
+            maskedrg.Focus();
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
+            maskedrg.Focus();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            if (radiocpf.Checked == true)
+            {
+                maskeddoc.Mask = "000.000.000-00";
+                maskeddoc.Focus();
+            }
 
         }
 
         private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-
+            if (radiocnpj.Checked == true)
+            {
+                maskeddoc.Mask = "00.000.000/0000-00";
+                maskeddoc.Focus();
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -228,10 +237,13 @@ namespace Cadastro_de_clientes_visual_studio
             }
             return false;
         }
-        private void button2_Click(object sender, EventArgs e)
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja limpar todos os campos?", "Limpar campos", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (Funcoes.Pergunta("Deseja limpar os campos?") == false)
+            {
                 return;
+            }
 
 
             txtid.Clear();
@@ -240,6 +252,7 @@ namespace Cadastro_de_clientes_visual_studio
             maskedrg.Clear();
             maskeddata.Clear();
             maskedcep.Clear();
+            maskedcel.Clear();
             textendereco.Clear();
             textnum.Clear();
             textbairro.Clear();
@@ -255,6 +268,26 @@ namespace Cadastro_de_clientes_visual_studio
             combocidade.SelectedIndex = -1;
             checkativo.Checked = false;
 
+        }
+
+        private void radiofem_CheckedChanged(object sender, EventArgs e)
+        {
+            maskedrg.Focus();
+        }
+
+        private void maskeddata_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void textendereco_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes.PriMaiuscula(textendereco);
+        }
+
+        private void textbairro_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes.PriMaiuscula(textbairro);
         }
     }
 }

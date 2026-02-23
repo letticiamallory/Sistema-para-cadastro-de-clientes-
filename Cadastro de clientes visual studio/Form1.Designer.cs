@@ -72,6 +72,7 @@
             button1 = new Button();
             buttonsalvar = new Button();
             maskedrg = new MaskedTextBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -250,6 +251,7 @@
             textendereco.Name = "textendereco";
             textendereco.Size = new Size(406, 22);
             textendereco.TabIndex = 7;
+            textendereco.TextChanged += textendereco_TextChanged;
             // 
             // textnum
             // 
@@ -277,6 +279,7 @@
             textbairro.Name = "textbairro";
             textbairro.Size = new Size(283, 22);
             textbairro.TabIndex = 9;
+            textbairro.TextChanged += textbairro_TextChanged;
             // 
             // textemail
             // 
@@ -343,6 +346,7 @@
             radiofem.TabStop = true;
             radiofem.Text = "Feminino";
             radiofem.UseVisualStyleBackColor = true;
+            radiofem.CheckedChanged += radiofem_CheckedChanged;
             // 
             // radiooutros
             // 
@@ -387,7 +391,6 @@
             // 
             maskeddoc.CutCopyMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             maskeddoc.Location = new Point(165, 121);
-            maskeddoc.Mask = "000,000,000-00";
             maskeddoc.Name = "maskeddoc";
             maskeddoc.Size = new Size(139, 23);
             maskeddoc.TabIndex = 2;
@@ -400,6 +403,7 @@
             maskeddata.Name = "maskeddata";
             maskeddata.Size = new Size(162, 22);
             maskeddata.TabIndex = 5;
+            maskeddata.Validating += maskeddata_Validating;
             // 
             // maskedcel
             // 
@@ -436,6 +440,7 @@
             // comboestado
             // 
             comboestado.DropDownHeight = 200;
+            comboestado.DropDownStyle = ComboBoxStyle.DropDownList;
             comboestado.Font = new Font("Microsoft Sans Serif", 9.75F);
             comboestado.FormattingEnabled = true;
             comboestado.IntegralHeight = false;
@@ -458,6 +463,7 @@
             // 
             // combocivil
             // 
+            combocivil.DropDownStyle = ComboBoxStyle.DropDownList;
             combocivil.Font = new Font("Microsoft Sans Serif", 9.75F);
             combocivil.FormattingEnabled = true;
             combocivil.Items.AddRange(new object[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "" });
@@ -468,6 +474,7 @@
             // 
             // combocidade
             // 
+            combocidade.DropDownStyle = ComboBoxStyle.DropDownList;
             combocidade.Font = new Font("Microsoft Sans Serif", 9.75F);
             combocidade.FormattingEnabled = true;
             combocidade.Location = new Point(337, 316);
@@ -546,6 +553,20 @@
             maskedrg.Size = new Size(150, 25);
             maskedrg.TabIndex = 15;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.LightGray;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(48, 607);
+            button2.Name = "button2";
+            button2.Size = new Size(68, 29);
+            button2.TabIndex = 16;
+            button2.Text = "Limpar";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -554,6 +575,7 @@
             BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(button2);
             Controls.Add(maskedrg);
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
@@ -653,5 +675,6 @@
         private Button button1;
         private Button buttonsalvar;
         private MaskedTextBox maskedrg;
+        private Button button2;
     }
 }
