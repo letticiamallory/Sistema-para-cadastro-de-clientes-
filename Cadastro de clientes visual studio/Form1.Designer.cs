@@ -67,7 +67,7 @@
             label3 = new Label();
             combocivil = new ComboBox();
             combocidade = new ComboBox();
-            pictureBox1 = new PictureBox();
+            ImgCliente = new PictureBox();
             u = new Button();
             button1 = new Button();
             buttonsalvar = new Button();
@@ -75,7 +75,7 @@
             button2 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ImgCliente).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -95,6 +95,7 @@
             txtid.Name = "txtid";
             txtid.Size = new Size(117, 25);
             txtid.TabIndex = 0;
+            txtid.Text = "2";
             // 
             // label2
             // 
@@ -482,16 +483,16 @@
             combocidade.Size = new Size(337, 24);
             combocidade.TabIndex = 10;
             // 
-            // pictureBox1
+            // ImgCliente
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(19, 31);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(122, 151);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
+            ImgCliente.Location = new Point(19, 31);
+            ImgCliente.Name = "ImgCliente";
+            ImgCliente.Size = new Size(122, 151);
+            ImgCliente.SizeMode = PictureBoxSizeMode.Zoom;
+            ImgCliente.TabIndex = 11;
+            ImgCliente.TabStop = false;
+            ImgCliente.Click += pictureBox1_Click;
             // 
             // u
             // 
@@ -510,6 +511,7 @@
             u.Text = "Upload";
             u.TextAlign = ContentAlignment.MiddleRight;
             u.UseVisualStyleBackColor = false;
+            u.Click += u_Click;
             // 
             // button1
             // 
@@ -580,7 +582,7 @@
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
             Controls.Add(u);
-            Controls.Add(pictureBox1);
+            Controls.Add(ImgCliente);
             Controls.Add(combocidade);
             Controls.Add(combocivil);
             Controls.Add(comboestado);
@@ -625,7 +627,7 @@
             groupBox1.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ImgCliente).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -670,7 +672,7 @@
         private Label label3;
         private ComboBox combocivil;
         private ComboBox combocidade;
-        private PictureBox pictureBox1;
+        private PictureBox ImgCliente;
         private Button u;
         private Button button1;
         private Button buttonsalvar;

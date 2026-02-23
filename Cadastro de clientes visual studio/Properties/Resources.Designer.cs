@@ -89,5 +89,15 @@ namespace Cadastro_de_clientes_visual_studio.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thedigitalartist_icon_9798055_640__1_ {
+            get {
+                object obj = ResourceManager.GetObject("thedigitalartist-icon-9798055_640 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -14,7 +14,43 @@ namespace Cadastro_de_clientes_visual_studio
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+
+            using (NpgsqlConnection con = new NpgsqlConnection(constring))
+            {
+                con.Open();
+
+                using (NpgsqlCommand cmd = con.CreateCommand())
+                {
+
+                    cmd.CommandText = "SELECT * FROM public.\"ClientesInformacoes\" WHERE id = " + txtid.Text;
+
+                    DataTable dt = new DataTable();
+
+                    using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+
+                        txtname.Text = dt.Rows[0]["nome"].ToString();
+                        maskedrg.Text = dt.Rows[0]["rg"].ToString();
+                        combocivil.Text = dt.Rows[0]["estado_civil"].ToString();
+                        maskeddata.Text = dt.Rows[0]["data_nascimento"].ToString();
+                        maskedcep.Text = dt.Rows[0]["cep"].ToString();
+                        textendereco.Text = dt.Rows[0]["endereco"].ToString();
+                        textnum.Text = dt.Rows[0]["numero"].ToString();
+                        textbairro.Text = dt.Rows[0]["bairro"].ToString();
+                        combocidade.Text = dt.Rows[0]["cidade"].ToString();
+                        comboestado.Text = dt.Rows[0]["estado"].ToString();
+                        maskedcel.Text = dt.Rows[0]["celular"].ToString();
+                        textemail.Text = dt.Rows[0]["email"].ToString();
+                        textobs.Text = dt.Rows[0]["obs"].ToString();
+
+
+                    }
+                }
+            }
         }
+    
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -100,7 +136,26 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtid.Text == "")
+            {
+               MessageBox.Show("Não há foto a ser removida.");
+                return;
+            }
 
+            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png") == false)
+            {
+                Funcoes.MsgErro ("Não foi possível encontrar a foto do cliente para remover.");
+                return;
+            }
+
+            if (Funcoes.Pergunta ("Deseja remover a foto do cliente?") == false)
+            {
+                return;
+            }
+
+            ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
+
+            File.Delete (AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
         }
 
         private void SalvarClientePostgreSql()
@@ -288,6 +343,22 @@ namespace Cadastro_de_clientes_visual_studio
         private void textbairro_TextChanged(object sender, EventArgs e)
         {
             Funcoes.PriMaiuscula(textbairro);
+        }
+
+        private void u_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog caixa = new OpenFileDialog();
+
+            caixa.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp|Todos os Arquivos|*.*";
+
+            if (caixa.ShowDialog() == DialogResult.OK)
+            {
+                ImgCliente.Image = Image.FromFile(caixa.FileName);
+
+                File.Copy(caixa.FileName, AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
+            }
+
+           
         }
     }
 }
