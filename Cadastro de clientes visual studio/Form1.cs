@@ -32,7 +32,6 @@ namespace Cadastro_de_clientes_visual_studio
                         da.Fill(dt);
 
                         txtname.Text = dt.Rows[0]["nome"].ToString();
-                        maskedrg.Text = dt.Rows[0]["rg"].ToString();
                         combocivil.Text = dt.Rows[0]["estado_civil"].ToString();
                         maskeddata.Text = dt.Rows[0]["data_nascimento"].ToString();
                         maskedcep.Text = dt.Rows[0]["cep"].ToString();
@@ -81,12 +80,12 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            maskedrg.Focus();
+           
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            maskedrg.Focus();
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -190,7 +189,7 @@ namespace Cadastro_de_clientes_visual_studio
                     else
                         cmd.Parameters.AddWithValue("@gênero", "Outros");
 
-                    cmd.Parameters.AddWithValue("@rg", maskedrg.Text);
+                    
                     cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
                     cmd.Parameters.AddWithValue("@data_nascimento", Convert.ToDateTime(maskeddata.Text));
                     cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
@@ -304,7 +303,6 @@ namespace Cadastro_de_clientes_visual_studio
             txtid.Clear();
             txtname.Clear();
             maskeddoc.Clear();
-            maskedrg.Clear();
             maskeddata.Clear();
             maskedcep.Clear();
             maskedcel.Clear();
@@ -327,7 +325,7 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radiofem_CheckedChanged(object sender, EventArgs e)
         {
-            maskedrg.Focus();
+            
         }
 
         private void maskeddata_Validating(object sender, System.ComponentModel.CancelEventArgs e)

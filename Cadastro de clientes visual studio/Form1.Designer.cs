@@ -33,7 +33,6 @@
             txtid = new TextBox();
             label2 = new Label();
             txtname = new TextBox();
-            label5 = new Label();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
@@ -44,7 +43,6 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
-            textBox7 = new TextBox();
             textendereco = new TextBox();
             textnum = new TextBox();
             label16 = new Label();
@@ -71,7 +69,6 @@
             u = new Button();
             button1 = new Button();
             buttonsalvar = new Button();
-            maskedrg = new MaskedTextBox();
             button2 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -117,22 +114,11 @@
             txtname.TabIndex = 1;
             txtname.TextChanged += textBox2_TextChanged;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F);
-            label5.Location = new Point(165, 162);
-            label5.Name = "label5";
-            label5.Size = new Size(28, 20);
-            label5.TabIndex = 0;
-            label5.Text = "RG";
-            label5.Click += label1_Click;
-            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F);
-            label6.Location = new Point(321, 162);
+            label6.Location = new Point(165, 164);
             label6.Name = "label6";
             label6.Size = new Size(86, 20);
             label6.TabIndex = 0;
@@ -143,7 +129,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F);
-            label7.Location = new Point(512, 162);
+            label7.Location = new Point(384, 164);
             label7.Name = "label7";
             label7.Size = new Size(145, 20);
             label7.TabIndex = 0;
@@ -154,7 +140,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F);
-            label8.Location = new Point(48, 228);
+            label8.Location = new Point(552, 162);
             label8.Name = "label8";
             label8.Size = new Size(34, 20);
             label8.TabIndex = 0;
@@ -165,7 +151,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11.25F);
-            label9.Location = new Point(154, 228);
+            label9.Location = new Point(48, 228);
             label9.Name = "label9";
             label9.Size = new Size(71, 20);
             label9.TabIndex = 0;
@@ -176,7 +162,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11.25F);
-            label10.Location = new Point(566, 228);
+            label10.Location = new Point(468, 228);
             label10.Name = "label10";
             label10.Size = new Size(26, 20);
             label10.TabIndex = 0;
@@ -238,28 +224,21 @@
             label15.Text = "Situação Cadastral";
             label15.Click += label1_Click;
             // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(512, 185);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(162, 23);
-            textBox7.TabIndex = 1;
-            // 
             // textendereco
             // 
             textendereco.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textendereco.Location = new Point(154, 251);
+            textendereco.Location = new Point(48, 251);
             textendereco.Name = "textendereco";
-            textendereco.Size = new Size(406, 22);
+            textendereco.Size = new Size(414, 22);
             textendereco.TabIndex = 7;
             textendereco.TextChanged += textendereco_TextChanged;
             // 
             // textnum
             // 
             textnum.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textnum.Location = new Point(566, 251);
+            textnum.Location = new Point(468, 251);
             textnum.Name = "textnum";
-            textnum.Size = new Size(108, 22);
+            textnum.Size = new Size(206, 22);
             textnum.TabIndex = 8;
             // 
             // label16
@@ -399,7 +378,7 @@
             // maskeddata
             // 
             maskeddata.Font = new Font("Microsoft Sans Serif", 9.75F);
-            maskeddata.Location = new Point(512, 185);
+            maskeddata.Location = new Point(384, 188);
             maskeddata.Mask = "00/00/0000";
             maskeddata.Name = "maskeddata";
             maskeddata.Size = new Size(162, 22);
@@ -419,10 +398,10 @@
             // maskedcep
             // 
             maskedcep.Font = new Font("Microsoft Sans Serif", 9.75F);
-            maskedcep.Location = new Point(48, 251);
+            maskedcep.Location = new Point(552, 185);
             maskedcep.Mask = "00000-000";
             maskedcep.Name = "maskedcep";
-            maskedcep.Size = new Size(100, 22);
+            maskedcep.Size = new Size(124, 22);
             maskedcep.TabIndex = 6;
             maskedcep.MaskInputRejected += maskedTextBox3_MaskInputRejected;
             // 
@@ -468,9 +447,9 @@
             combocivil.Font = new Font("Microsoft Sans Serif", 9.75F);
             combocivil.FormattingEnabled = true;
             combocivil.Items.AddRange(new object[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "" });
-            combocivil.Location = new Point(321, 185);
+            combocivil.Location = new Point(165, 187);
             combocivil.Name = "combocivil";
-            combocivil.Size = new Size(185, 24);
+            combocivil.Size = new Size(213, 24);
             combocivil.TabIndex = 4;
             // 
             // combocidade
@@ -546,15 +525,6 @@
             buttonsalvar.UseVisualStyleBackColor = false;
             buttonsalvar.Click += button3_Click;
             // 
-            // maskedrg
-            // 
-            maskedrg.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedrg.Location = new Point(165, 184);
-            maskedrg.Mask = "0,000,000";
-            maskedrg.Name = "maskedrg";
-            maskedrg.Size = new Size(150, 25);
-            maskedrg.TabIndex = 15;
-            // 
             // button2
             // 
             button2.BackColor = Color.LightGray;
@@ -578,7 +548,6 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
             Controls.Add(button2);
-            Controls.Add(maskedrg);
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
             Controls.Add(u);
@@ -594,7 +563,6 @@
             Controls.Add(groupBox1);
             Controls.Add(txtname);
             Controls.Add(label2);
-            Controls.Add(textBox7);
             Controls.Add(textobs);
             Controls.Add(textemail);
             Controls.Add(textbairro);
@@ -613,7 +581,6 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
             DoubleBuffered = true;
@@ -638,7 +605,6 @@
         private TextBox txtid;
         private Label label2;
         private TextBox txtname;
-        private Label label5;
         private Label label6;
         private Label label7;
         private Label label8;
@@ -649,7 +615,6 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private TextBox textBox7;
         private TextBox textendereco;
         private TextBox textnum;
         private Label label16;
@@ -676,7 +641,6 @@
         private Button u;
         private Button button1;
         private Button buttonsalvar;
-        private MaskedTextBox maskedrg;
         private Button button2;
     }
 }
