@@ -70,6 +70,7 @@
             button1 = new Button();
             buttonsalvar = new Button();
             button2 = new Button();
+            button3 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ImgCliente).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // label1
             // 
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 11.25F);
             label1.Location = new Point(165, 31);
             label1.Name = "label1";
@@ -92,11 +94,11 @@
             txtid.Name = "txtid";
             txtid.Size = new Size(117, 25);
             txtid.TabIndex = 0;
-            txtid.Text = "2";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 11.25F);
             label2.Location = new Point(288, 31);
             label2.Name = "label2";
@@ -117,6 +119,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 11.25F);
             label6.Location = new Point(165, 164);
             label6.Name = "label6";
@@ -128,6 +131,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 11.25F);
             label7.Location = new Point(384, 164);
             label7.Name = "label7";
@@ -139,6 +143,7 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 11.25F);
             label8.Location = new Point(552, 162);
             label8.Name = "label8";
@@ -150,6 +155,7 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 11.25F);
             label9.Location = new Point(48, 228);
             label9.Name = "label9";
@@ -161,6 +167,7 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
             label10.Font = new Font("Segoe UI", 11.25F);
             label10.Location = new Point(468, 228);
             label10.Name = "label10";
@@ -172,6 +179,7 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 11.25F);
             label11.Location = new Point(48, 417);
             label11.Name = "label11";
@@ -183,6 +191,7 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 11.25F);
             label12.Location = new Point(337, 293);
             label12.Name = "label12";
@@ -194,6 +203,7 @@
             // label13
             // 
             label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
             label13.Font = new Font("Segoe UI", 11.25F);
             label13.Location = new Point(300, 353);
             label13.Name = "label13";
@@ -205,6 +215,7 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
             label14.Font = new Font("Segoe UI", 11.25F);
             label14.Location = new Point(410, 353);
             label14.Name = "label14";
@@ -244,6 +255,7 @@
             // label16
             // 
             label16.AutoSize = true;
+            label16.BackColor = Color.Transparent;
             label16.Font = new Font("Segoe UI", 11.25F);
             label16.Location = new Point(48, 293);
             label16.Name = "label16";
@@ -343,6 +355,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(radiomasc);
             groupBox1.Controls.Add(radiooutros);
             groupBox1.Controls.Add(radiofem);
@@ -408,6 +421,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.BackColor = Color.White;
             flowLayoutPanel1.Controls.Add(radiocnpj);
             flowLayoutPanel1.Controls.Add(radiocpf);
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
@@ -433,6 +447,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 11.25F);
             label3.Location = new Point(48, 353);
             label3.Name = "label3";
@@ -464,6 +479,7 @@
             // 
             // ImgCliente
             // 
+            ImgCliente.BackColor = Color.Transparent;
             ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
             ImgCliente.Location = new Point(19, 31);
             ImgCliente.Name = "ImgCliente";
@@ -539,14 +555,24 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
+            // button3
+            // 
+            button3.Location = new Point(280, 569);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 17;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 255, 254);
-            BackgroundImage = Properties.Resources.Captura_de_tela_2026_02_16_162357;
+            BackColor = Color.Snow;
+            BackgroundImage = Properties.Resources.gradient_1080_1080__2_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
@@ -642,5 +668,6 @@
         private Button button1;
         private Button buttonsalvar;
         private Button button2;
+        private Button button3;
     }
 }

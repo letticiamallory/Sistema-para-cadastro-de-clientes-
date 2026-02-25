@@ -93,6 +93,36 @@ namespace Cadastro_de_clientes_visual_studio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gradient_1080_1080 {
+            get {
+                object obj = ResourceManager.GetObject("gradient_1080_1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gradient_1080_1080__1_ {
+            get {
+                object obj = ResourceManager.GetObject("gradient_1080_1080 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gradient_1080_1080__2_ {
+            get {
+                object obj = ResourceManager.GetObject("gradient_1080_1080 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thedigitalartist_icon_9798055_640__1_ {
             get {
                 object obj = ResourceManager.GetObject("thedigitalartist-icon-9798055_640 (1)", resourceCulture);
