@@ -44,12 +44,53 @@ namespace Cadastro_de_clientes_visual_studio
                         textemail.Text = dt.Rows[0]["email"].ToString();
                         textobs.Text = dt.Rows[0]["obs"].ToString();
 
+                        if (dt.Rows[0]["documento"].ToString().Length == 11)
+                        {
+                            radiocpf.Checked = true;
 
+                        }
+                        else
+                        {
+                            radiocnpj.Checked = true;
+                        }
+
+                        maskeddoc.Text = dt.Rows[0]["documento"].ToString();
+
+                        if (dt.Rows[0]["gênero"].ToString() == "Masculino")
+                        {
+                            radiomasc.Checked = true;
+                        }
+                        else if (dt.Rows[0]["gênero"].ToString() == "Feminino")
+                        {
+                            radiofem.Checked = true;
+                        }
+                        else
+                        {
+                            radiooutros.Checked = true;
+                        }
+
+                        if (dt.Rows[0]["situacao"].ToString() == "Ativo")
+                        {
+                            checkativo.Checked = true;
+                        }
+                        else
+                        {
+                            checkativo.Checked = false;
+                        }
+
+                        if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png") == true)
+                        {
+                            ImgCliente.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
+                        }
+                        else
+                        {
+                            ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
+                        }
                     }
                 }
             }
         }
-    
+
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -80,12 +121,12 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -109,7 +150,11 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radiocnpj.Checked == true)
+            {
+                maskeddoc.Mask = "00.000.000/0000-00";
+                maskeddoc.Focus();
+            }
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -137,24 +182,24 @@ namespace Cadastro_de_clientes_visual_studio
         {
             if (txtid.Text == "")
             {
-               MessageBox.Show("Não há foto a ser removida.");
+                MessageBox.Show("Não há foto a ser removida.");
                 return;
             }
 
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png") == false)
             {
-                Funcoes.MsgErro ("Não foi possível encontrar a foto do cliente para remover.");
+                Funcoes.MsgErro("Não foi possível encontrar a foto do cliente para remover.");
                 return;
             }
 
-            if (Funcoes.Pergunta ("Deseja remover a foto do cliente?") == false)
+            if (Funcoes.Pergunta("Deseja remover a foto do cliente?") == false)
             {
                 return;
             }
 
             ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
 
-            File.Delete (AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
+            File.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
         }
 
         private void SalvarClientePostgreSql()
@@ -165,20 +210,46 @@ namespace Cadastro_de_clientes_visual_studio
             {
                 con.Open();
 
+                string query; 
 
-                string query = @"INSERT INTO public.""ClientesInformacoes"" 
-                        (nome, documento, gênero, rg, estado_civil, data_nascimento, 
-                         cep, endereco, numero, bairro, cidade, estado, celular, 
-                         email, obs, situacao) 
-                        VALUES 
-                        (@nome, @documento, @gênero, @rg, @estado_civil, @data_nascimento, 
-                         @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, 
-                         @email, @obs, @situacao)
-                        RETURNING id;";
+                if (txtid.Text == "")
+                {
+                    
+                    query = @"INSERT INTO public.""ClientesInformacoes"" 
+                (nome, documento, gênero, estado_civil, data_nascimento, 
+                 cep, endereco, numero, bairro, cidade, estado, celular, 
+                 email, obs, situacao) 
+                VALUES 
+                (@nome, @documento, @gênero, @estado_civil, @data_nascimento, 
+                 @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, 
+                 @email, @obs, @situacao)
+                RETURNING id;"; 
+                }
+                else
+                {
+                    
+                    query = @"UPDATE public.""ClientesInformacoes"" SET 
+                nome = @nome,
+                documento = @documento,
+                gênero = @gênero,
+                estado_civil = @estado_civil,
+                data_nascimento = @data_nascimento,
+                cep = @cep,
+                endereco = @endereco,
+                numero = @numero,
+                bairro = @bairro,
+                cidade = @cidade,
+                estado = @estado,
+                celular = @celular,
+                email = @email,
+                obs = @obs,
+                situacao = @situacao
+                WHERE id = " + txtid.Text; 
+                }
 
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, con))
                 {
-                    // Seus parâmetros (igual você já tem)
+                    
                     cmd.Parameters.AddWithValue("@nome", txtname.Text);
                     cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
 
@@ -189,7 +260,6 @@ namespace Cadastro_de_clientes_visual_studio
                     else
                         cmd.Parameters.AddWithValue("@gênero", "Outros");
 
-                    
                     cmd.Parameters.AddWithValue("@estado_civil", combocivil.Text);
                     cmd.Parameters.AddWithValue("@data_nascimento", Convert.ToDateTime(maskeddata.Text));
                     cmd.Parameters.AddWithValue("@cep", maskedcep.Text);
@@ -207,18 +277,29 @@ namespace Cadastro_de_clientes_visual_studio
                     else
                         cmd.Parameters.AddWithValue("@situacao", "Inativo");
 
+                    if (txtid.Text != "")
+                    {
+                        cmd.Parameters.AddWithValue("@id", Convert.ToInt32(txtid.Text));
+                    }
 
-                    int novoId = Convert.ToInt32(cmd.ExecuteScalar());
-
-
-                    txtid.Text = novoId.ToString();
+                    
+                    if (txtid.Text == "")
+                    {
+                       
+                        int novoId = Convert.ToInt32(cmd.ExecuteScalar());
+                        txtid.Text = novoId.ToString();
+                    }
+                    else
+                    {
+                        
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 con.Close();
-                MessageBox.Show("Cliente inserido com sucesso!");
+                MessageBox.Show("Cliente salvo com sucesso!");
             }
         }
-
 
         private bool Validacoes()
         {
@@ -325,7 +406,7 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void radiofem_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void maskeddata_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -345,6 +426,12 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void u_Click(object sender, EventArgs e)
         {
+            if(txtid.Text == "")
+            {
+               Funcoes.MsgErro("Salve o cliente antes de adicionar uma foto.");
+               return;
+            }
+
             OpenFileDialog caixa = new OpenFileDialog();
 
             caixa.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp|Todos os Arquivos|*.*";
@@ -356,7 +443,17 @@ namespace Cadastro_de_clientes_visual_studio
                 File.Copy(caixa.FileName, AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
             }
 
-           
+
+        }
+
+        private void maskeddoc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtid_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

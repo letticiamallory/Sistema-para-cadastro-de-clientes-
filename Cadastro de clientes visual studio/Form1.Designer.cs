@@ -70,7 +70,6 @@
             button1 = new Button();
             buttonsalvar = new Button();
             button2 = new Button();
-            button3 = new Button();
             groupBox1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ImgCliente).BeginInit();
@@ -94,6 +93,8 @@
             txtid.Name = "txtid";
             txtid.Size = new Size(117, 25);
             txtid.TabIndex = 0;
+            txtid.Text = "2";
+            txtid.TextChanged += txtid_TextChanged;
             // 
             // label2
             // 
@@ -387,6 +388,7 @@
             maskeddoc.Name = "maskeddoc";
             maskeddoc.Size = new Size(139, 23);
             maskeddoc.TabIndex = 2;
+            maskeddoc.MaskInputRejected += maskeddoc_MaskInputRejected;
             // 
             // maskeddata
             // 
@@ -555,15 +557,6 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
-            // button3
-            // 
-            button3.Location = new Point(280, 569);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 17;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -572,7 +565,6 @@
             BackgroundImage = Properties.Resources.gradient_1080_1080__2_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(734, 661);
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(buttonsalvar);
@@ -668,6 +660,5 @@
         private Button button1;
         private Button buttonsalvar;
         private Button button2;
-        private Button button3;
     }
 }
