@@ -91,9 +91,10 @@
             txtid.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtid.Location = new Point(165, 53);
             txtid.Name = "txtid";
+            txtid.ReadOnly = true;
             txtid.Size = new Size(117, 25);
             txtid.TabIndex = 0;
-            txtid.Text = "2";
+            txtid.TextAlign = HorizontalAlignment.Center;
             txtid.TextChanged += txtid_TextChanged;
             // 
             // label2
@@ -534,10 +535,10 @@
             buttonsalvar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonsalvar.ForeColor = SystemColors.ControlText;
             buttonsalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonsalvar.Location = new Point(606, 607);
+            buttonsalvar.Location = new Point(597, 607);
             buttonsalvar.Name = "buttonsalvar";
             buttonsalvar.RightToLeft = RightToLeft.No;
-            buttonsalvar.Size = new Size(68, 29);
+            buttonsalvar.Size = new Size(77, 29);
             buttonsalvar.TabIndex = 12;
             buttonsalvar.Text = "Salvar";
             buttonsalvar.UseVisualStyleBackColor = false;

@@ -14,6 +14,13 @@ namespace Cadastro_de_clientes_visual_studio
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            if (txtid.Text == "")
+            {
+                return;
+            }
+
+            buttonsalvar.Text = "Atualizar";
+
             string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
 
             using (NpgsqlConnection con = new NpgsqlConnection(constring))
@@ -401,7 +408,8 @@ namespace Cadastro_de_clientes_visual_studio
             comboestado.SelectedIndex = -1;
             combocidade.SelectedIndex = -1;
             checkativo.Checked = false;
-
+            buttonsalvar.Text = "Salvar";
+            ImgCliente.Image = Properties.Resources.thedigitalartist_icon_9798055_640__1_;
         }
 
         private void radiofem_CheckedChanged(object sender, EventArgs e)
