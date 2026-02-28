@@ -17,6 +17,9 @@ namespace Cadastro_de_clientes_visual_studio
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            Funcoes.BuscaSql(constring, "SELECT endereco FROM public.\"ClientesInformacoes\"");
+
+
             if (txtid.Text == "")
             {
                 return;

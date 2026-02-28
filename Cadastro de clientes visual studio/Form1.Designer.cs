@@ -88,6 +88,7 @@
             // 
             // txtid
             // 
+            txtid.Enabled = false;
             txtid.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtid.Location = new Point(165, 53);
             txtid.Name = "txtid";

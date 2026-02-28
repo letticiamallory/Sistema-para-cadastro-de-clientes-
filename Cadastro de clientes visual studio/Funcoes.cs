@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Text;
 
@@ -51,7 +53,7 @@ namespace Cadastro_de_clientes_visual_studio
             ctr.Text = t;
 
             if (ctr is TextBox txt)
-                {
+            {
                 txt.SelectionStart = txt.Text.Length;
             }
 
@@ -62,6 +64,26 @@ namespace Cadastro_de_clientes_visual_studio
 
 
         }
+
+        public static DataTable BuscaSql(string constring, string ComandoSql)
+        {
+            DataTable dt = new DataTable();
+
+            using (NpgsqlConnection Conexao = new NpgsqlConnection(constring))
+            {
+                Conexao.Open();
+
+                using (NpgsqlCommand cmd = Conexao.CreateCommand())
+                {
+                    cmd.CommandText = ComandoSql;
+                    using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
     }
 }
-
