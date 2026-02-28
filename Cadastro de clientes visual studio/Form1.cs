@@ -11,6 +11,9 @@ namespace Cadastro_de_clientes_visual_studio
             InitializeComponent();
         }
 
+        string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+        string pastafotos = AppDomain.CurrentDomain.BaseDirectory + "/Fotos/";
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +24,7 @@ namespace Cadastro_de_clientes_visual_studio
 
             buttonsalvar.Text = "Atualizar";
 
-            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+            
 
             using (NpgsqlConnection con = new NpgsqlConnection(constring))
             {
@@ -85,9 +88,9 @@ namespace Cadastro_de_clientes_visual_studio
                             checkativo.Checked = false;
                         }
 
-                        if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png") == true)
+                        if (File.Exists(pastafotos + txtid.Text + ".png") == true)
                         {
-                            ImgCliente.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
+                            ImgCliente.Image = Image.FromFile(pastafotos + txtid.Text + ".png");
                         }
                         else
                         {
@@ -211,7 +214,6 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void SalvarClientePostgreSql()
         {
-            string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
 
             using (NpgsqlConnection con = new NpgsqlConnection(constring))
             {
@@ -456,7 +458,7 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void maskeddoc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-
+            
         }
 
         private void txtid_TextChanged(object sender, EventArgs e)
