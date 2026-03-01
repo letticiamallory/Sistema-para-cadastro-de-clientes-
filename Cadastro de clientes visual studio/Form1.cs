@@ -1,6 +1,6 @@
 using Npgsql;
 using System.Data;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Text.Json;
 
 namespace Cadastro_de_clientes_visual_studio
 {
@@ -16,9 +16,7 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             Funcoes.BuscaSql(constring, "SELECT endereco FROM public.\"ClientesInformacoes\"");
-
 
             if (txtid.Text == "")
             {
@@ -27,15 +25,12 @@ namespace Cadastro_de_clientes_visual_studio
 
             buttonsalvar.Text = "Atualizar";
 
-            
-
             using (NpgsqlConnection con = new NpgsqlConnection(constring))
             {
                 con.Open();
 
                 using (NpgsqlCommand cmd = con.CreateCommand())
                 {
-
                     cmd.CommandText = "SELECT * FROM public.\"ClientesInformacoes\" WHERE id = " + txtid.Text;
 
                     DataTable dt = new DataTable();
@@ -60,7 +55,6 @@ namespace Cadastro_de_clientes_visual_studio
                         if (dt.Rows[0]["documento"].ToString().Length == 11)
                         {
                             radiocpf.Checked = true;
-
                         }
                         else
                         {
@@ -104,17 +98,14 @@ namespace Cadastro_de_clientes_visual_studio
             }
         }
 
-
-
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Handler required by the designer (label1.Click += this.label1_Click)
         private void label1_Click(object sender, EventArgs e)
         {
-            // intentionally left empty
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -149,7 +140,6 @@ namespace Cadastro_de_clientes_visual_studio
                 maskeddoc.Mask = "000.000.000-00";
                 maskeddoc.Focus();
             }
-
         }
 
         private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -188,7 +178,6 @@ namespace Cadastro_de_clientes_visual_studio
             }
 
             SalvarClientePostgreSql();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -217,16 +206,14 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void SalvarClientePostgreSql()
         {
-
             using (NpgsqlConnection con = new NpgsqlConnection(constring))
             {
                 con.Open();
 
-                string query; 
+                string query;
 
                 if (txtid.Text == "")
                 {
-                    
                     query = @"INSERT INTO public.""ClientesInformacoes"" 
                 (nome, documento, gênero, estado_civil, data_nascimento, 
                  cep, endereco, numero, bairro, cidade, estado, celular, 
@@ -235,11 +222,10 @@ namespace Cadastro_de_clientes_visual_studio
                 (@nome, @documento, @gênero, @estado_civil, @data_nascimento, 
                  @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, 
                  @email, @obs, @situacao)
-                RETURNING id;"; 
+                RETURNING id;";
                 }
                 else
                 {
-                    
                     query = @"UPDATE public.""ClientesInformacoes"" SET 
                 nome = @nome,
                 documento = @documento,
@@ -256,12 +242,11 @@ namespace Cadastro_de_clientes_visual_studio
                 email = @email,
                 obs = @obs,
                 situacao = @situacao
-                WHERE id = " + txtid.Text; 
+                WHERE id = " + txtid.Text;
                 }
 
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, con))
                 {
-                    
                     cmd.Parameters.AddWithValue("@nome", txtname.Text);
                     cmd.Parameters.AddWithValue("@documento", maskeddoc.Text);
 
@@ -289,21 +274,13 @@ namespace Cadastro_de_clientes_visual_studio
                     else
                         cmd.Parameters.AddWithValue("@situacao", "Inativo");
 
-                    if (txtid.Text != "")
-                    {
-                        cmd.Parameters.AddWithValue("@id", Convert.ToInt32(txtid.Text));
-                    }
-
-                    
                     if (txtid.Text == "")
                     {
-                       
                         int novoId = Convert.ToInt32(cmd.ExecuteScalar());
                         txtid.Text = novoId.ToString();
                     }
                     else
                     {
-                        
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -328,7 +305,8 @@ namespace Cadastro_de_clientes_visual_studio
                 return true;
             }
 
-            if (maskeddoc.Text == "")
+            string docSemMascara = maskeddoc.Text.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
+            if (docSemMascara == "")
             {
                 if (radiocpf.Checked == true)
                 {
@@ -337,51 +315,51 @@ namespace Cadastro_de_clientes_visual_studio
                 else
                 {
                     MessageBox.Show("O campo 'CNPJ' é obrigatório.");
-                    maskeddoc.Focus();
-                    return true;
                 }
 
-                if (radiomasc.Checked == false && radiofem.Checked == false && radiooutros.Checked == false)
-                {
-                    MessageBox.Show("Selecione o gênero.");
-                    return true;
-                }
-
-                DateTime dataValida;
-                string dataTexto = maskeddata.Text;
-
-
-                if (!DateTime.TryParseExact(dataTexto, "dd/MM/yyyy",
-                                            System.Globalization.CultureInfo.InvariantCulture,
-                                            System.Globalization.DateTimeStyles.None,
-                                            out dataValida))
-                {
-                    MessageBox.Show("Data de nascimento inválida. Use o formato dd/mm/yyyy.",
-                                   "Erro de validação",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.Warning);
-                    maskeddata.Focus();
-                }
-
-                if (dataValida > DateTime.Today)
-                {
-                    MessageBox.Show("A data de nascimento não pode ser futura.",
-                                   "Erro de validação",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.Warning);
-                    maskeddata.Focus();
-                    return false;
-                }
-
-
-                if (dataValida < new DateTime(1904, 1, 1))
-                {
-                    MessageBox.Show("Data de nascimento inválida");
-                    maskeddata.Focus();
-                    return false;
-                }
-
+                maskeddoc.Focus();
+                return true;
             }
+
+            if (radiomasc.Checked == false && radiofem.Checked == false && radiooutros.Checked == false)
+            {
+                MessageBox.Show("Selecione o gênero.");
+                return true;
+            }
+
+            DateTime dataValida;
+            string dataTexto = maskeddata.Text;
+
+            if (!DateTime.TryParseExact(dataTexto, "dd/MM/yyyy",
+                                        System.Globalization.CultureInfo.InvariantCulture,
+                                        System.Globalization.DateTimeStyles.None,
+                                        out dataValida))
+            {
+                MessageBox.Show("Data de nascimento inválida. Use o formato dd/mm/yyyy.",
+                               "Erro de validação",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                maskeddata.Focus();
+                return true;
+            }
+
+            if (dataValida > DateTime.Today)
+            {
+                MessageBox.Show("A data de nascimento não pode ser futura.",
+                               "Erro de validação",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                maskeddata.Focus();
+                return true;
+            }
+
+            if (dataValida < new DateTime(1904, 1, 1))
+            {
+                MessageBox.Show("Data de nascimento inválida.");
+                maskeddata.Focus();
+                return true;
+            }
+
             return false;
         }
 
@@ -391,7 +369,6 @@ namespace Cadastro_de_clientes_visual_studio
             {
                 return;
             }
-
 
             txtid.Clear();
             txtname.Clear();
@@ -439,10 +416,10 @@ namespace Cadastro_de_clientes_visual_studio
 
         private void u_Click(object sender, EventArgs e)
         {
-            if(txtid.Text == "")
+            if (txtid.Text == "")
             {
-               Funcoes.MsgErro("Salve o cliente antes de adicionar uma foto.");
-               return;
+                Funcoes.MsgErro("Salve o cliente antes de adicionar uma foto.");
+                return;
             }
 
             OpenFileDialog caixa = new OpenFileDialog();
@@ -453,20 +430,73 @@ namespace Cadastro_de_clientes_visual_studio
             {
                 ImgCliente.Image = Image.FromFile(caixa.FileName);
 
-                File.Copy(caixa.FileName, AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png");
+                File.Copy(caixa.FileName, AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtid.Text + ".png", true);
             }
-
-
         }
 
         private void maskeddoc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            
+
         }
 
         private void txtid_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void maskedcep_Leave(object sender, EventArgs e)
+        {
+            string cep = maskedcep.Text.Replace("-", "").Trim();
+
+            if (cep.Length != 8)
+            {
+                return;
+            }
+
+            try
+            {
+                using (HttpClient http = new HttpClient())
+                {
+                    string url = "https://viacep.com.br/ws/" + cep + "/json/";
+                    string resposta = await http.GetStringAsync(url);
+
+                    using (JsonDocument doc = JsonDocument.Parse(resposta))
+                    {
+                        JsonElement root = doc.RootElement;
+
+                        if (root.TryGetProperty("erro", out _))
+                        {
+                            Funcoes.MsgAlerta("CEP não encontrado.");
+                            return;
+                        }
+
+                        textendereco.Text = root.GetProperty("logradouro").GetString();
+                        textbairro.Text = root.GetProperty("bairro").GetString();
+
+                        string uf = root.GetProperty("uf").GetString() ?? "";
+                        string nomeCidade = root.GetProperty("localidade").GetString() ?? "";
+
+                        foreach (var item in comboestado.Items)
+                        {
+                            if (item.ToString()!.Contains("(" + uf + ")"))
+                            {
+                                comboestado.SelectedItem = item;
+                                break;
+                            }
+                        }
+
+                        combocidade.Items.Clear();
+                        combocidade.Items.Add(nomeCidade);
+                        combocidade.SelectedIndex = 0;
+
+                        textnum.Focus();
+                    }
+                }
+            }
+            catch
+            {
+                Funcoes.MsgAlerta("Não foi possível buscar o CEP. Verifique sua conexão.");
+            }
         }
     }
 }
