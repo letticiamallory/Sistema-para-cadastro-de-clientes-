@@ -421,6 +421,7 @@
             maskedcep.Size = new Size(124, 22);
             maskedcep.TabIndex = 6;
             maskedcep.MaskInputRejected += maskedTextBox3_MaskInputRejected;
+            maskedcep.Leave += maskedcep_Leave;
             // 
             // flowLayoutPanel1
             // 

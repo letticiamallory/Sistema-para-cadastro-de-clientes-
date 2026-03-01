@@ -34,7 +34,12 @@
             buttonpdf = new Button();
             buttonedit = new Button();
             buttonadd = new Button();
+            dgvClientes = new DataGridView();
+            txtbusca = new TextBox();
+            btnBuscar = new Button();
+            lblBusca = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -110,6 +115,47 @@
             buttonadd.UseVisualStyleBackColor = false;
             buttonadd.Click += button1_Click;
             // 
+            // lblBusca
+            // 
+            lblBusca.AutoSize = true;
+            lblBusca.BackColor = Color.Transparent;
+            lblBusca.Font = new Font("Segoe UI", 10F);
+            lblBusca.Location = new Point(280, 35);
+            lblBusca.Name = "lblBusca";
+            lblBusca.Text = "Buscar:";
+            // 
+            // txtbusca
+            // 
+            txtbusca.Font = new Font("Segoe UI", 10F);
+            txtbusca.Location = new Point(338, 32);
+            txtbusca.Name = "txtbusca";
+            txtbusca.Size = new Size(350, 25);
+            txtbusca.TabIndex = 2;
+            txtbusca.KeyDown += txtbusca_KeyDown;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.SteelBlue;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Segoe UI", 10F);
+            btnBuscar.ForeColor = Color.White;
+            btnBuscar.Location = new Point(698, 31);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(80, 27);
+            btnBuscar.TabIndex = 3;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // dgvClientes
+            // 
+            dgvClientes.Location = new Point(12, 110);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(1240, 555);
+            dgvClientes.TabIndex = 4;
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -117,6 +163,10 @@
             BackgroundImage = Properties.Resources.gradient_1080_1080__2_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
+            Controls.Add(dgvClientes);
+            Controls.Add(btnBuscar);
+            Controls.Add(txtbusca);
+            Controls.Add(lblBusca);
             Controls.Add(groupBox1);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 9.75F);
@@ -127,7 +177,9 @@
             Text = "Sistema de cadastro";
             Load += Form2_Load;
             groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -137,5 +189,9 @@
         private Button buttonform;
         private Button buttonpdf;
         private Button buttonedit;
+        private DataGridView dgvClientes;
+        private TextBox txtbusca;
+        private Button btnBuscar;
+        private Label lblBusca;
     }
 }

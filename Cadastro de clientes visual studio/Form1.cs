@@ -11,7 +11,7 @@ namespace Cadastro_de_clientes_visual_studio
             InitializeComponent();
         }
 
-        string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+        string constring = "server=localhost;user id=postgres;password=postgres123;database=CadastroClientes";
         string pastafotos = AppDomain.CurrentDomain.BaseDirectory + "/Fotos/";
 
         private void Form1_Load(object sender, EventArgs e)
