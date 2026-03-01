@@ -5,7 +5,7 @@ namespace Cadastro_de_clientes_visual_studio
 {
     public partial class Form2 : Form
     {
-        string constring = "server=localhost;user id=postgres;password=Pudimamassado1@;database=CadastroClientes";
+        string constring = "server=localhost;user id=postgres;password=postgres123;database=CadastroClientes";
 
         public Form2()
         {
@@ -95,29 +95,36 @@ namespace Cadastro_de_clientes_visual_studio
 
             DataTable dt = Funcoes.BuscaSql(constring, sql);
             dgvClientes.DataSource = dt;
+
+            buttonedit.Enabled = false;
+            buttonform.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
-            CarregarClientes();
-        }
+            Button botaoClicado = (Button)sender;
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CarregarClientes();
-        }
-
-        private void txtbusca_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (botaoClicado == buttonadd)
             {
+                Form1 form1 = new Form1();
+                form1.ShowDialog();
                 CarregarClientes();
+            }
+            else if (botaoClicado == buttonedit)
+            {
+                AbrirParaEditar();
+            }
+            else if (botaoClicado == buttonform)
+            {
+                ExcluirCliente();
+            }
+            else if (botaoClicado == buttonpdf)
+            {
+                MessageBox.Show("Funcionalidade de PDF em breve!");
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void AbrirParaEditar()
         {
             if (dgvClientes.SelectedRows.Count == 0)
             {
@@ -139,7 +146,7 @@ namespace Cadastro_de_clientes_visual_studio
             };
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void ExcluirCliente()
         {
             if (dgvClientes.SelectedRows.Count == 0)
             {
@@ -177,6 +184,19 @@ namespace Cadastro_de_clientes_visual_studio
             CarregarClientes();
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CarregarClientes();
+        }
+
+        private void txtbusca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CarregarClientes();
+            }
+        }
+
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -184,18 +204,21 @@ namespace Cadastro_de_clientes_visual_studio
                 return;
             }
 
-            int id = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells["colId"].Value);
+            AbrirParaEditar();
+        }
 
-            Form1 form1 = new Form1();
-            form1.txtid.Text = id.ToString();
-            form1.Show();
-            this.Hide();
-
-            form1.FormClosed += (s, args) =>
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
             {
-                this.Show();
-                CarregarClientes();
-            };
+                buttonedit.Enabled = true;
+                buttonform.Enabled = true;
+            }
+            else
+            {
+                buttonedit.Enabled = false;
+                buttonform.Enabled = false;
+            }
         }
     }
 }

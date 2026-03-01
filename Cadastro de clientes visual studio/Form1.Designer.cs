@@ -623,7 +623,7 @@
         #endregion
 
         private Label label1;
-        private TextBox txtid;
+        public TextBox txtid;
         private Label label2;
         private TextBox txtname;
         private Label label6;

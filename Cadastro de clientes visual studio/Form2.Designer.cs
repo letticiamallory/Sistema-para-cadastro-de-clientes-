@@ -115,14 +115,14 @@
             buttonadd.UseVisualStyleBackColor = false;
             buttonadd.Click += button1_Click;
             // 
-            // lblBusca
+            // dgvClientes
             // 
-            lblBusca.AutoSize = true;
-            lblBusca.BackColor = Color.Transparent;
-            lblBusca.Font = new Font("Segoe UI", 10F);
-            lblBusca.Location = new Point(280, 35);
-            lblBusca.Name = "lblBusca";
-            lblBusca.Text = "Buscar:";
+            dgvClientes.Location = new Point(12, 110);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(1240, 567);
+            dgvClientes.TabIndex = 4;
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
+            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
             // 
             // txtbusca
             // 
@@ -148,13 +148,16 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // dgvClientes
+            // lblBusca
             // 
-            dgvClientes.Location = new Point(12, 110);
-            dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(1240, 555);
-            dgvClientes.TabIndex = 4;
-            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
+            lblBusca.AutoSize = true;
+            lblBusca.BackColor = Color.Transparent;
+            lblBusca.Font = new Font("Segoe UI", 10F);
+            lblBusca.Location = new Point(280, 35);
+            lblBusca.Name = "lblBusca";
+            lblBusca.Size = new Size(52, 19);
+            lblBusca.TabIndex = 5;
+            lblBusca.Text = "Buscar:";
             // 
             // Form2
             // 
